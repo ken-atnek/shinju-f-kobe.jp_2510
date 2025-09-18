@@ -1,0 +1,4 @@
+{
+  "_comment": "本番環境での年齢認証TTL設定",
+  "ttlMinutes": 10080
+}
