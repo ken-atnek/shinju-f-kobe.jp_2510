@@ -8,3 +8,306 @@
 /* stylelint-disable keyframes-name-pattern */
 /* stylelint-disable custom-property-pattern */
 // このファイル全体のルールを無効にする
+.pageEntrance {
+    h1 {
+        position: relative;
+        text-align: center;
+        font-size: FZ(20);
+        font-weight: 300;
+        letter-spacing: 0.27em;
+        padding-block: 0.5em;
+        z-index: 2;
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-color: $dark-purple;
+            z-index: -1;
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: -36px;
+            left: 0;
+            width: 100%;
+            height: 66px;
+            background-image: url("../images/pearl01.webp");
+            background-repeat: repeat-x;
+            background-size: 66px auto;
+            background-position: center bottom;
+            z-index: -1;
+        }
+    }
+    .containerBgPearl {
+        z-index: 3;
+        font-size: inherit;
+        .bgPearl {
+            position: absolute;
+            top: 0;
+            left: -27px;
+            translate: 0 -27px;
+            width: calc(100vw + 100vw * tan(15deg));
+            height: 54px;
+            background-image: url("../images/pearl01.webp");
+            background-repeat: repeat-x;
+            background-size: 54px auto;
+            background-position: center bottom;
+            transform-origin: left center;
+            rotate: -15deg;
+        }
+    }
+    .containerHead {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 12em 0 20vw;
+        &::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(../images/main-bg.webp) no-repeat center center /
+                cover;
+            z-index: -1;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-color: $base-purple;
+            mix-blend-mode: multiply;
+            z-index: -1;
+        }
+        .name {
+            font-size: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5em 0;
+            span {
+                font-size: FZ(128);
+                font-weight: 300;
+                letter-spacing: 0.15em;
+            }
+            p {
+                font-size: FZ(20);
+                font-weight: 300;
+                letter-spacing: 0.27em;
+            }
+        }
+        button {
+            position: relative;
+            font-size: inherit;
+            background-color: $base-white;
+            width: 17em;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            color: $dark-purple;
+            gap: 0.3em 0;
+            margin-top: 5em;
+            @include flex-center(column);
+            @include move03;
+            &::before {
+                content: "";
+                position: absolute;
+                left: 50%;
+                translate: -50%;
+                width: 8rem;
+                aspect-ratio: 1;
+                top: -3rem;
+                background: url(../images/pearl02.webp) no-repeat center
+                    center/contain;
+            }
+            @include hover {
+                background-color: $base-pink;
+                color: $base-white;
+            }
+            span {
+                @include Oswald;
+                font-weight: 100;
+                text-transform: uppercase;
+                font-size: FZ(64);
+                letter-spacing: 0.1em;
+                padding-left: 0.1em;
+            }
+            p {
+                font-size: FZ(20);
+                font-weight: 300;
+                letter-spacing: 0.27em;
+            }
+        }
+        a {
+            font-size: inherit;
+            width: 15em;
+            font-weight: 300;
+            background-color: $base-pink;
+            text-align: center;
+            letter-spacing: 0.1em;
+            padding-block: 0.8em;
+            border-radius: 100vmax;
+            margin-top: 0.5em;
+        }
+        .caution {
+            position: relative;
+            text-align: center;
+            font-size: FZ(12);
+            font-weight: 300;
+            line-height: 2em;
+            letter-spacing: 0.2em;
+            margin-top: 10em;
+            &::before {
+                content: "";
+                position: absolute;
+                left: 50%;
+                translate: -50%;
+                bottom: calc(100% + 0.1em);
+                width: 83px;
+                @include svg-icon-under18("f4e1fc");
+            }
+        }
+    }
+    .containerBottom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 0 8em;
+        z-index: 1;
+        padding-top: 22vw;
+        translate: 0 calc(-100vw * tan(15deg));
+        clip-path: polygon(
+            0 calc(100vw * tan(15deg)),
+            100% 0,
+            100% 100%,
+            0 100%
+        );
+        // 移動した分の下余白を削除してレイアウト調整
+        margin-bottom: calc(-100vw * tan(15deg));
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(../images/main-bg.webp) no-repeat center center /
+                cover;
+            z-index: -1;
+            opacity: 0.6;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-color: $light-purple;
+            mix-blend-mode: multiply;
+            z-index: -1;
+        }
+        .announce {
+            font-size: FZ(20);
+            text-align: center;
+            font-weight: 300;
+            letter-spacing: 0.27em;
+            line-height: 2.5em;
+        }
+        .blockInfo {
+            font-size: inherit;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 3em;
+            gap: 0 2em;
+            .name {
+                display: grid;
+                font-size: inherit;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.4em;
+                span {
+                    display: inline-block;
+                    font-weight: 300;
+                    font-size: FZ(128);
+                }
+            }
+            .boxInfo {
+                position: relative;
+                font-size: inherit;
+                display: grid;
+                grid-template-columns: auto 1fr;
+                gap: 0.8em 1em;
+                align-items: center;
+                h3 {
+                    font-size: FZ(20);
+                    letter-spacing: 0.12em;
+                }
+                .time {
+                    font-size: inherit;
+                    display: flex;
+                    span {
+                        @include Oswald;
+                        font-weight: 200;
+                        font-size: FZ(32);
+                        letter-spacing: 0.12em;
+                        &:nth-of-type(2) {
+                            &::before {
+                                content: "~";
+                                margin-inline: 0.3em;
+                            }
+                        }
+                    }
+                }
+                .tel {
+                    font-size: inherit;
+                    display: flex;
+                    align-items: center;
+                    gap: 0 0.5em;
+                    a {
+                        @include Oswald;
+                        font-weight: 200;
+                        font-size: FZ(32);
+                        letter-spacing: 0.12em;
+                    }
+                    span {
+                        font-size: FZ(20);
+                        letter-spacing: 0.12em;
+                    }
+                }
+                address {
+                    grid-column: span 2;
+                    font-size: FZ(20);
+                    letter-spacing: 0.12em;
+                    margin-top: 0.3em;
+                }
+            }
+        }
+    }
+    .copyright {
+        position: relative;
+        text-align: center;
+        font-size: FZ(20);
+        font-weight: 300;
+        letter-spacing: 0.27em;
+        padding-block: 0.5em;
+        z-index: 2;
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-color: $base-purple;
+            z-index: -1;
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            top: -36px;
+            left: 0;
+            width: 100%;
+            height: 66px;
+            background-image: url("../images/pearl01.webp");
+            background-repeat: repeat-x;
+            background-size: 66px auto;
+            background-position: center bottom;
+            z-index: -1;
+        }
+    }
+}

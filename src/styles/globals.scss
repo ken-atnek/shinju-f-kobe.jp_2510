@@ -13,7 +13,7 @@ body {
     justify-content: space-between;
     width: 100%;
     color: $base-white;
-    background-color: $base-purple;
+    background-color: $light-purple;
     @include tbw {
         overflow-x: clip;
     }
