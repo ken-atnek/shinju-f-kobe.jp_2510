@@ -1,0 +1,27 @@
+/* =================================
+ * 	パールライン 右上への区切りライン
+ * ------------------------------ */
+@use "variable" as *;
+@use "svg" as *;
+@use "mixin" as *;
+/* stylelint-disable no-descending-specificity */
+/* stylelint-disable keyframes-name-pattern */
+/* stylelint-disable custom-property-pattern */
+// このファイル全体のルールを無効にする
+.pearlLineTopRight {
+    font-size: inherit;
+    .bgPearl {
+        position: absolute;
+        top: 0;
+        left: -27px;
+        translate: 0 -27px;
+        width: calc(100vw + 100vw * tan(15deg));
+        height: 54px;
+        background-image: url("../../images/pearl01.webp");
+        background-repeat: repeat-x;
+        background-size: 54px auto;
+        background-position: center bottom;
+        transform-origin: left center;
+        rotate: -15deg;
+    }
+}

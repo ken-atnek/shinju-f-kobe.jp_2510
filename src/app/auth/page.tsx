@@ -12,6 +12,11 @@ import { useRouter } from 'next/navigation';
 import { setAgeVerified } from '@/lib/age';
 import ExternalLink from '@/components/common/ExternalLink';
 import { SHOP_INFO } from '@/config/shop';
+import clsx from 'clsx';
+
+import { useMediaQuery } from '@/hooks/useMediaQuery';
+import PearlArc from '@/components/Decoration/PearlArc';
+import PearlLineTopRight from '@/components/Decoration/PearlLineTopRight';
 
 export default function PageEntrance() {
   const router = useRouter();
@@ -22,11 +27,29 @@ export default function PageEntrance() {
     await setAgeVerified();
     router.replace('/');
   };
-
+  const isMobile = useMediaQuery('(max-width: 768px)');
   return (
     <main className={styles.pageEntrance}>
       <h1>神戸三宮のヘルス 真珠夫人</h1>
       <section className={styles.containerHead}>
+        <div className={clsx(styles.objectCirclePearl, styles.potionLeft)}>
+          <PearlArc
+            count={21}
+            radius={350}
+            startAngle={90}
+            endAngle={270}
+            size={isMobile ? 32 : 54}
+          />
+        </div>
+        <div className={clsx(styles.objectCirclePearl, styles.potionRight)}>
+          <PearlArc
+            count={21}
+            radius={400}
+            startAngle={-90}
+            endAngle={90}
+            size={isMobile ? 32 : 63}
+          />
+        </div>
         <div className={styles.name}>
           <span>真珠夫人</span>
           <p>上質で妖艶。真珠のように艶めき煌めく大人の女性。</p>
@@ -46,9 +69,7 @@ export default function PageEntrance() {
           該当する方の訪問はご遠慮願います。
         </p>
       </section>
-      <section className={styles.containerBgPearl}>
-        <div className={styles.bgPearl}></div>
-      </section>
+      <PearlLineTopRight zIndex={3} />
       <section className={styles.containerBottom}>
         <p className={styles.announce}>
           神戸三宮発、厳選美女、特選美女、人妻専門店
