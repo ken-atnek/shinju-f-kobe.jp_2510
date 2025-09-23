@@ -10,7 +10,9 @@ export type CastDetail = {
   west: number;
   hip: number;
   catchCopy: string;
-  ranking?: number;
+  rankings?: {
+    [key: string]: number;
+  };
   type: number[];
   badges?: string[];
 };

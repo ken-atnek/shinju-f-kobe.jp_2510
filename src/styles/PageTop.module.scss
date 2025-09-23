@@ -155,11 +155,43 @@
         flex-direction: column;
         justify-content: space-between;
         padding: 2em 0;
+        .wrapBadges {
+            font-size: inherit;
+            height: 5rem;
+            display: flex;
+            ul {
+                display: flex;
+                font-size: inherit;
+                --badge-color: #000;
+                gap: 0 6px;
+                li {
+                    font-size: inherit;
+                    background-color: var(--badge-color);
+                    color: $base-white;
+                    width: 8rem;
+                    @include flex-center;
+                    @include Oswald;
+                    font-size: FZ(16);
+                    text-transform: uppercase;
+                    letter-spacing: 0.16em;
+                    &.new {
+                        --badge-color: #148e5c;
+                    }
+                    &.trial {
+                        --badge-color: #14668e;
+                    }
+                    &.up {
+                        --badge-color: #910a67;
+                    }
+                }
+            }
+        }
         .wrapProfile {
             font-size: inherit;
             display: flex;
             flex-direction: column;
             min-width: 42rem;
+            margin-top: 4em;
             @include sp {
                 min-width: unset;
             }
@@ -241,11 +273,57 @@
                 }
             }
         }
+        .wrapRanking {
+            position: relative;
+            font-size: inherit;
+            width: 100%;
+            padding-right: 3em;
+            display: flex;
+            justify-content: flex-end;
+            padding-top: 2em;
+            .itemRanking {
+                position: relative;
+                font-size: inherit;
+                background-color: #030637;
+                color: $base-white;
+                width: 8rem;
+                aspect-ratio: 1;
+                @include flex-center;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: -1rem;
+                    right: -1rem;
+                    width: 2.5rem;
+                    aspect-ratio: 1;
+                    background: url(../images/pearl03.webp) no-repeat center
+                        center / contain;
+                    filter: drop-shadow(2px 2px 2px rgba(#000, 0.25));
+                }
+                span {
+                    @include Oswald;
+                    font-size: FZ(40);
+                    font-weight: 300;
+                    display: flex;
+                    align-items: center;
+
+                    &::before {
+                        letter-spacing: 0.07em;
+                        display: inline-block;
+                        content: "NO.";
+                        font-size: 0.35em;
+                        translate: 0 0.5em;
+                    }
+                }
+            }
+        }
         .listType {
             display: flex;
             flex-wrap: wrap;
             font-size: inherit;
             gap: 0.3em;
+            flex: 1;
+            align-items: flex-end;
             li {
                 background-color: $light-purple;
                 color: $base-white;
@@ -265,6 +343,8 @@
         .catchCopy {
             font-size: FZ(24);
             font-weight: 300;
+            letter-spacing: 0.04em;
+            margin-top: 1.6em;
         }
     }
 }
@@ -286,6 +366,18 @@
             display: flex;
             font-size: inherit;
             max-width: 1063px;
+            container-type: inline-size;
+            &::before {
+                content: "";
+                position: absolute;
+                top: -2em;
+                right: -4em;
+                width: 35cqw;
+                background: url(../images/pick-up.svg) no-repeat center
+                    center/contain;
+                aspect-ratio: 341/170;
+                z-index: 3;
+            }
             :global(.splide__track),
             :global(.splide__list),
             :global(.splide__slide) {
