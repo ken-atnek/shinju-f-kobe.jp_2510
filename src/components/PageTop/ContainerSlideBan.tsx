@@ -7,9 +7,47 @@
  * ======================================= */
 'use client';
 import styles from '@/styles/PageTop.module.scss';
+import {
+  useBannerItemsWithModal,
+  renderBannerItem,
+} from '@/lib/renderBannerItem';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/react-splide/css';
+
+const DATA_URL = `/data/kobe/top_ban_main.json`;
 
 const ContainerSlideBan = () => {
-  return <section className={styles.containerSlideBan}></section>;
+  const [items, setModalImage, modal] = useBannerItemsWithModal(DATA_URL);
+
+  return (
+    <>
+      <section className={styles.containerSlideBan}>
+        <Splide
+          className={styles.bannerList}
+          options={{
+            type: 'loop',
+            autoplay: true,
+            interval: 4000,
+            pauseOnHover: true,
+            perPage: 1,
+            gap: '3rem',
+            speed: 800,
+            focus: 'center', // 中央寄せ
+            padding: '15%', // 左右に余白（%やpxで調整）
+            // breakpointsでレスポンシブ調整も可
+          }}
+          aria-label="バナー"
+        >
+          {items.map((item, i) => (
+            <SplideSlide key={item.banId || i}>
+              {renderBannerItem(item, setModalImage, i === 0)}
+            </SplideSlide>
+          ))}
+        </Splide>
+      </section>
+      {modal}
+    </>
+  );
 };
 
 export default ContainerSlideBan;

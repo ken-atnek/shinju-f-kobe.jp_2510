@@ -424,7 +424,22 @@
 /* =================================
  * スライドバナー
  * ------------------------------ */
+
 .containerSlideBan {
-    padding: 5em 2vw;
+    padding: 2em 0 3em;
     background-color: $dark-purple;
+    .bannerList {
+        :global(.splide__arrows) {
+            display: none;
+        }
+        :global(.splide__pagination) {
+            display: none;
+        }
+        :global(.splide__slide) {
+            img {
+                aspect-ratio: 1920/1080;
+                object-fit: cover;
+            }
+        }
+    }
 }
