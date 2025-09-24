@@ -70,7 +70,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ja" className={`${notoSans.className} ${oswald.className}`}>
+    <html
+      lang="ja"
+      data-scroll-behavior="smooth"
+      className={`${notoSans.className} ${oswald.className}`}
+    >
       <head>
         <meta
           name="format-detection"

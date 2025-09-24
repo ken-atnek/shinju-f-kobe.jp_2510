@@ -1,0 +1,9 @@
+[
+  {
+    "id": "movie01",
+    "visible": true,
+    "thumbnail": "/movie/thumb-test.webp",
+    "video_url": "/movie/test.mp4",
+    "updated_at": "2025-09-21T12:34:56+09:00"
+  }
+]

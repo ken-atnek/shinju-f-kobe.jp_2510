@@ -8,6 +8,11 @@
 import type { Metadata } from 'next';
 
 import { isRealProduction } from '@/lib/env';
+import ContainerMovie from '@/components/PageTop/ContainerMovie';
+import ContainerShopInfo from '@/components/PageTop/ContainerShopInfo';
+import ContainerPickUp from '@/components/PageTop/ContainerPickUp';
+import PearlLineTopRight from '@/components/Decoration/PearlLineTopRight';
+import ContainerSlideBan from '@/components/PageTop/ContainerSlideBan';
 export const generateMetadata = (): Metadata => {
   return {
     title: '神戸・三宮の風俗｜真珠夫人神戸本店',
@@ -17,5 +22,13 @@ export const generateMetadata = (): Metadata => {
   };
 };
 export default function PageTop() {
-  return <main>222346546</main>;
+  return (
+    <main>
+      <ContainerMovie />
+      <ContainerShopInfo />
+      <PearlLineTopRight zIndex={2} />
+      <ContainerPickUp />
+      <ContainerSlideBan />
+    </main>
+  );
 }
