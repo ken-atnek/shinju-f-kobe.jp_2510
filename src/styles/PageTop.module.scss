@@ -8,6 +8,24 @@
 /* stylelint-disable keyframes-name-pattern */
 /* stylelint-disable custom-property-pattern */
 // このファイル全体のルールを無効にする
+.boxH2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: inherit;
+    span {
+        @include Oswald;
+        font-size: FZ(128);
+        font-weight: 200;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+    h2 {
+        font-size: FZ(24);
+        font-weight: 300;
+        letter-spacing: 0.27em;
+    }
+}
 
 /* =================================
  * 動画
@@ -165,7 +183,6 @@
                 --badge-color: #000;
                 gap: 0 6px;
                 li {
-                    font-size: inherit;
                     background-color: var(--badge-color);
                     color: $base-white;
                     width: 8rem;
@@ -296,7 +313,7 @@
                     right: -1rem;
                     width: 2.5rem;
                     aspect-ratio: 1;
-                    background: url(../images/pearl03.webp) no-repeat center
+                    background: url("../images/pearl03.webp") no-repeat center
                         center / contain;
                     filter: drop-shadow(2px 2px 2px rgba(#000, 0.25));
                 }
@@ -306,7 +323,6 @@
                     font-weight: 300;
                     display: flex;
                     align-items: center;
-
                     &::before {
                         letter-spacing: 0.07em;
                         display: inline-block;
@@ -373,7 +389,7 @@
                 top: -2em;
                 right: -4em;
                 width: 35cqw;
-                background: url(../images/pick-up.svg) no-repeat center
+                background: url("../images/pick-up.svg") no-repeat center
                     center/contain;
                 aspect-ratio: 341/170;
                 z-index: 3;
@@ -424,11 +440,19 @@
 /* =================================
  * スライドバナー
  * ------------------------------ */
-
 .containerSlideBan {
     padding: 2em 0 3em;
     background-color: $dark-purple;
     .bannerList {
+        position: relative;
+        width: 100%;
+        min-height: 240px;
+        :global(.splide__track),
+        :global(.splide__list),
+        :global(.splide__slide) {
+            font-size: inherit;
+            min-height: 240px;
+        }
         :global(.splide__arrows) {
             display: none;
         }
@@ -439,6 +463,34 @@
             img {
                 aspect-ratio: 1920/1080;
                 object-fit: cover;
+            }
+        }
+    }
+}
+
+/* =================================
+ * ランキング
+ * ------------------------------ */
+.containerRanking {
+    display: flex;
+    justify-content: center;
+    padding: 5em 2vw 3em;
+    article {
+        max-width: 129rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .listRanking {
+            display: grid;
+            width: 100%;
+            grid-template-columns: repeat(3, 1fr);
+            font-size: inherit;
+            margin-top: 3em;
+            gap: 0 1em;
+            .itemRanking {
+                position: relative;
+                width: 100%;
+                font-size: inherit;
             }
         }
     }

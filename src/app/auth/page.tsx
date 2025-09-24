@@ -6,14 +6,13 @@
  * ======================================= */
 
 'use client';
+import { useEffect, useState } from 'react';
 import styles from '@/styles/PageEntrance.module.scss';
-import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { setAgeVerified } from '@/lib/age';
 import ExternalLink from '@/components/common/ExternalLink';
 import { SHOP_INFO } from '@/config/shop';
 import clsx from 'clsx';
-
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import PearlArc from '@/components/Decoration/PearlArc';
 import PearlLineTopRight from '@/components/Decoration/PearlLineTopRight';
@@ -21,6 +20,25 @@ import PearlLineTopRight from '@/components/Decoration/PearlLineTopRight';
 export default function PageEntrance() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+
+  // ページタイトルをuseEffectで設定
+  useEffect(() => {
+    document.title = '認証ページ | 真珠夫人神戸本店';
+    // 必要ならmeta descriptionも動的に追加
+    const meta = document.querySelector('meta[name="description"]');
+    if (!meta) {
+      const metaTag = document.createElement('meta');
+      metaTag.name = 'description';
+      metaTag.content =
+        '神戸三宮のヘルス 真珠夫人 認証ページです。18歳未満の方はご退出ください。';
+      document.head.appendChild(metaTag);
+    } else {
+      meta.setAttribute(
+        'content',
+        '神戸三宮のヘルス 真珠夫人 認証ページです。18歳未満の方はご退出ください。'
+      );
+    }
+  }, []);
 
   const handleApprove = async () => {
     setIsLoading(true);

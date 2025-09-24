@@ -11,6 +11,7 @@ import {
   useBannerItemsWithModal,
   renderBannerItem,
 } from '@/lib/renderBannerItem';
+
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 
@@ -19,31 +20,34 @@ const DATA_URL = `/data/kobe/top_ban_main.json`;
 const ContainerSlideBan = () => {
   const [items, setModalImage, modal] = useBannerItemsWithModal(DATA_URL);
 
+  // itemsが0件なら何も描画しない
+  if (items.length === 0) return null;
+
   return (
     <>
       <section className={styles.containerSlideBan}>
-        <Splide
-          className={styles.bannerList}
-          options={{
-            type: 'loop',
-            autoplay: true,
-            interval: 4000,
-            pauseOnHover: true,
-            perPage: 1,
-            gap: '3rem',
-            speed: 800,
-            focus: 'center', // 中央寄せ
-            padding: '15%', // 左右に余白（%やpxで調整）
-            // breakpointsでレスポンシブ調整も可
-          }}
-          aria-label="バナー"
-        >
-          {items.map((item, i) => (
-            <SplideSlide key={item.banId || i}>
-              {renderBannerItem(item, setModalImage, i === 0)}
-            </SplideSlide>
-          ))}
-        </Splide>
+        {items.length > 0 && (
+          <Splide
+            className={styles.bannerList}
+            options={{
+              type: 'loop',
+              autoplay: true,
+              interval: 4000,
+              pauseOnHover: true,
+              perPage: 1,
+              gap: '3rem',
+              speed: 800,
+              padding: '15%',
+            }}
+            aria-label="バナー"
+          >
+            {items.map((item, i) => (
+              <SplideSlide key={item.banId || i}>
+                {renderBannerItem(item, setModalImage, true)}
+              </SplideSlide>
+            ))}
+          </Splide>
+        )}
       </section>
       {modal}
     </>

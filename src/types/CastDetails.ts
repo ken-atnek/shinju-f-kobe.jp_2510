@@ -14,5 +14,10 @@ export type CastDetail = {
     [key: string]: number;
   };
   type: number[];
+  schedule?: {
+    startTime?: string;
+    endTime?: string;
+    scheduleStatus?: string;
+  };
   badges?: string[];
 };

@@ -13,6 +13,7 @@ import ContainerShopInfo from '@/components/PageTop/ContainerShopInfo';
 import ContainerPickUp from '@/components/PageTop/ContainerPickUp';
 import PearlLineTopRight from '@/components/Decoration/PearlLineTopRight';
 import ContainerSlideBan from '@/components/PageTop/ContainerSlideBan';
+import ContainerRanking from '@/components/PageTop/ContainerRanking';
 export const generateMetadata = (): Metadata => {
   return {
     title: '神戸・三宮の風俗｜真珠夫人神戸本店',
@@ -29,6 +30,7 @@ export default function PageTop() {
       <PearlLineTopRight zIndex={2} />
       <ContainerPickUp />
       <ContainerSlideBan />
+      <ContainerRanking />
     </main>
   );
 }
