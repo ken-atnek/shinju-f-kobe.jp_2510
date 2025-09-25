@@ -26,19 +26,10 @@ export const useScrollTrigger = <T extends HTMLElement = HTMLElement>(
     if (!target) return;
 
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          if (once) observer.unobserve(entry.target);
-        } else if (!once) {
-          // when once=false, toggle off when it leaves the viewport
-          setIsVisible(false);
-        }
-      },
+      ([entry]) => setIsVisible(entry.isIntersecting),
       {
-        root: null,
-        rootMargin,
-        threshold,
+        threshold: 0, // 50%見えたらtrue
+        rootMargin: '0px 0px -10% 0px', // 画面下から20%分入ったら発火
       }
     );
 

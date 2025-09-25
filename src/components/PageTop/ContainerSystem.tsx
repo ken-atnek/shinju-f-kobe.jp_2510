@@ -10,10 +10,14 @@ import BlockSlideBanSquare from '@/components/PageTop/BlockSlideBanSquare';
 import styles from '@/styles/PageTop.module.scss';
 import clsx from 'clsx';
 import Link from 'next/link';
+import { useScrollTrigger } from '@/hooks/useScrollTrigger';
+import { useSplitText } from '@/hooks/useSplitText';
 import PearlArc from '@/components/Decoration/PearlArc';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 const ContainerSystem = () => {
   const isMobile = useMediaQuery('(max-width: 768px)');
+  const { ref: h2Ref, isVisible: h2Visible } =
+    useScrollTrigger<HTMLDivElement>();
   return (
     <section className={styles.containerSystem}>
       <div className={styles.boxBlockBg}></div>
@@ -36,8 +40,15 @@ const ContainerSystem = () => {
         />
       </div>
       <article className={styles.blockSystem}>
-        <div className={styles.boxH2}>
-          <span>system</span>
+        <div className={styles.boxH2} ref={h2Ref}>
+          <div
+            className={clsx(styles.enH2, {
+              [styles['is-active']]: h2Visible,
+            })}
+            aria-label="system"
+          >
+            {useSplitText('system')}
+          </div>
           <h2>料金システム</h2>
         </div>
         <div className={styles.boxDetails}>

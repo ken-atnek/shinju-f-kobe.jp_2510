@@ -7,8 +7,11 @@
  * ======================================= */
 'use client';
 import styles from '@/styles/PageTop.module.scss';
+import clsx from 'clsx';
 import CastDetailsBox from '@/components/common/CastDetailsBox';
 import { useEffect, useState } from 'react';
+import { useScrollTrigger } from '@/hooks/useScrollTrigger';
+import { useSplitText } from '@/hooks/useSplitText';
 import type { CastDetail } from '@/types/CastDetails';
 import dayjs from 'dayjs';
 import Link from 'next/link';
@@ -17,6 +20,11 @@ const DATA_URL = '/data/kobe/top_schedule.json';
 const ContainerSchedule = () => {
   const [rankingList, setRankingList] = useState<CastDetail[]>([]);
   const [scheduleDate, setScheduleDate] = useState<string>('');
+
+  const { ref: h2Ref, isVisible: h2Visible } =
+    useScrollTrigger<HTMLDivElement>();
+  const { ref: ulRef, isVisible: ulVisible } =
+    useScrollTrigger<HTMLUListElement>();
 
   useEffect(() => {
     fetch(DATA_URL)
@@ -73,8 +81,15 @@ const ContainerSchedule = () => {
   return (
     <section className={styles.containerSchedule}>
       <article>
-        <div className={styles.boxH2}>
-          <span>schedule</span>
+        <div className={styles.boxH2} ref={h2Ref}>
+          <div
+            className={clsx(styles.enH2, {
+              [styles['is-active']]: h2Visible,
+            })}
+            aria-label="schedule"
+          >
+            {useSplitText('schedule')}
+          </div>
           <h2>本日出勤スケジュール</h2>
         </div>
         <time dateTime={scheduleDate} className={styles.todayDate}>
@@ -86,9 +101,18 @@ const ContainerSchedule = () => {
         <p className={styles.notice}>
           キャストの体調等により予告なく変更になる場合がございます。あらかじめご了承ください。
         </p>
-        <ul className={styles.listSchedule}>
-          {rankingList.map((item) => (
-            <li key={item.castId} className={styles.innerSchedule}>
+        <ul
+          className={clsx(styles.listSchedule, {
+            [styles['is-active']]: ulVisible,
+          })}
+          ref={ulRef}
+        >
+          {rankingList.map((item, i) => (
+            <li
+              key={item.castId}
+              className={styles.innerSchedule}
+              style={{ transitionDelay: `${i * 0.2}s` }}
+            >
               <CastDetailsBox item={item} />
             </li>
           ))}
