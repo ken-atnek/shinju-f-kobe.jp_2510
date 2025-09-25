@@ -38,7 +38,7 @@ const ContainerRanking = () => {
         </div>
         <ul className={styles.listRanking}>
           {rankingList.map((item) => (
-            <li key={item.castId} className={styles.itemRanking}>
+            <li key={item.castId} className={styles.innerRanking}>
               <CastDetailsBox item={item} />
             </li>
           ))}

@@ -1,0 +1,77 @@
+/* =======================================
+ * TOPページ 料金システム・スクエアバナー
+ * URL:src/components/PageTop/ContainerSystem.tsx
+ * Referenced in: : /app/page.tsx
+ * Created: 2025-09-24
+ * Last updated: 2025-09-24
+ * ======================================= */
+'use client';
+import BlockSlideBanSquare from '@/components/PageTop/BlockSlideBanSquare';
+import styles from '@/styles/PageTop.module.scss';
+import clsx from 'clsx';
+import Link from 'next/link';
+import PearlArc from '@/components/Decoration/PearlArc';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
+const ContainerSystem = () => {
+  const isMobile = useMediaQuery('(max-width: 768px)');
+  return (
+    <section className={styles.containerSystem}>
+      <div className={styles.boxBlockBg}></div>
+      <div className={clsx(styles.objectCirclePearl, styles.potionRight)}>
+        <PearlArc
+          count={21}
+          radius={450}
+          startAngle={90}
+          endAngle={270}
+          size={isMobile ? 32 : 68}
+        />
+      </div>
+      <div className={clsx(styles.objectCirclePearl, styles.potionLeft)}>
+        <PearlArc
+          count={23}
+          radius={500}
+          startAngle={-90}
+          endAngle={90}
+          size={isMobile ? 32 : 68}
+        />
+      </div>
+      <article className={styles.blockSystem}>
+        <div className={styles.boxH2}>
+          <span>system</span>
+          <h2>料金システム</h2>
+        </div>
+        <div className={styles.boxDetails}>
+          <div className={styles.normalPrice}>
+            <span className={styles.min}>
+              40<i>分</i>
+            </span>
+            <span className={styles.price}>
+              15,000<i>円</i>
+            </span>
+          </div>
+          <div className={styles.specialPrice}>
+            <h3>opening price</h3>
+            <span className={styles.min}>
+              40<i>分</i>
+            </span>
+            <span className={styles.price}>
+              15,000<i>円</i>
+            </span>
+          </div>
+          <div className={styles.nominationFee}>
+            <h4>指名料</h4>
+            <span className={styles.price}>
+              1,000<i>円〜</i>
+            </span>
+          </div>
+          <Link href="/" className={styles.itemPageLink}>
+            その他の料金システムはこちら
+          </Link>
+        </div>
+      </article>
+      <BlockSlideBanSquare />
+    </section>
+  );
+};
+
+export default ContainerSystem;

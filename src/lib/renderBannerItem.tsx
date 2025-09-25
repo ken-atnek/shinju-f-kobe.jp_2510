@@ -70,8 +70,7 @@ export const renderBannerItem = (
       return (
         <button
           onClick={() => setModalImage(item.popUpImage!)}
-          className="itemBan"
-          style={{ all: 'unset', cursor: 'pointer' }}
+          className="itemButton"
         >
           <Image
             src={item.banImage}

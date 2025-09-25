@@ -14,6 +14,12 @@ import ContainerPickUp from '@/components/PageTop/ContainerPickUp';
 import PearlLineTopRight from '@/components/Decoration/PearlLineTopRight';
 import ContainerSlideBan from '@/components/PageTop/ContainerSlideBan';
 import ContainerRanking from '@/components/PageTop/ContainerRanking';
+import ContainerSystem from '@/components/PageTop/ContainerSystem';
+import ContainerSchedule from '@/components/PageTop/ContainerSchedule';
+import ContainerJobOffer from '@/components/PageTop/ContainerJobOffer';
+import ContainerMensJobOffer from '@/components/PageTop/ContainerMensJobOffer';
+import ContainerAccess from '@/components/common/ContainerAccess';
+import ContainerFooter from '@/components/common/ContainerFooter';
 export const generateMetadata = (): Metadata => {
   return {
     title: '神戸・三宮の風俗｜真珠夫人神戸本店',
@@ -27,10 +33,16 @@ export default function PageTop() {
     <main>
       <ContainerMovie />
       <ContainerShopInfo />
-      <PearlLineTopRight zIndex={2} />
+      <PearlLineTopRight zIndex={2} positionClass="left" />
       <ContainerPickUp />
       <ContainerSlideBan />
       <ContainerRanking />
+      <ContainerSystem />
+      <ContainerSchedule />
+      <ContainerJobOffer />
+      <ContainerMensJobOffer />
+      <ContainerAccess />
+      <ContainerFooter />
     </main>
   );
 }

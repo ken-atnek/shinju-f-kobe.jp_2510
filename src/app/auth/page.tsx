@@ -87,7 +87,7 @@ export default function PageEntrance() {
           該当する方の訪問はご遠慮願います。
         </p>
       </section>
-      <PearlLineTopRight zIndex={3} />
+      <PearlLineTopRight zIndex={3} positionClass="left" />
       <section className={styles.containerBottom}>
         <p className={styles.announce}>
           神戸三宮発、厳選美女、特選美女、人妻専門店

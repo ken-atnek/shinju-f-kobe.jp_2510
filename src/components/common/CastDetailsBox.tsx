@@ -21,13 +21,21 @@ const CastDetailsBox = ({ item }: Props) => (
         )}
       </ul>
     )}
-    <div className={styles.itemRanking}>
-      <span>
-        {item.rankings?.rankingLabel01 !== undefined
-          ? `${item.rankings.rankingLabel01}`
-          : ''}
-      </span>
-    </div>
+
+    {item.rankings?.rankingLabel01 !== undefined &&
+    item.rankings?.rankingLabel01 !== null &&
+    !isNaN(item.rankings.rankingLabel01) ? (
+      <div className={styles.itemRanking}>
+        <span>{item.rankings.rankingLabel01}</span>
+      </div>
+    ) : item.rankings?.rankingLabel02 !== undefined &&
+      item.rankings?.rankingLabel02 !== null &&
+      !isNaN(item.rankings.rankingLabel02) ? (
+      <div className={styles.itemRanking}>
+        <span>{item.rankings.rankingLabel02}</span>
+      </div>
+    ) : null}
+
     <div className={styles.wrapImage}>
       <Image
         src={item.castImage}

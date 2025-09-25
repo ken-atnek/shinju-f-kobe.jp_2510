@@ -1,0 +1,65 @@
+/* =================================
+ * 	アクセスマップ
+ * ------------------------------ */
+@use "variable" as *;
+@use "svg" as *;
+@use "mixin" as *;
+/* stylelint-disable no-descending-specificity */
+/* stylelint-disable keyframes-name-pattern */
+/* stylelint-disable custom-property-pattern */
+// このファイル全体のルールを無効にする
+.containerAccess {
+    display: flex;
+    flex-direction: column;
+    background-color: $base-purple;
+    &::before {
+        @include pearl-line(54px, bottom);
+    }
+    .boxMap {
+        position: relative;
+        font-size: inherit;
+        iframe {
+            aspect-ratio: 2.48;
+            width: 100%;
+            position: relative;
+            height: auto;
+        }
+        &::after {
+            content: "access";
+            position: absolute;
+            left: 50%;
+            translate: -50%;
+            top: 90%;
+            @include Oswald;
+            font-size: FZ(300);
+            font-weight: 200;
+            text-transform: uppercase;
+            color: $base-pink;
+            letter-spacing: 0.12em;
+        }
+    }
+    article {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 9em 0 5em;
+        address {
+            font-size: FZ(20);
+            letter-spacing: 0.17em;
+        }
+        .linkMap {
+            background-color: $base-white;
+            color: $dark-purple;
+            @include Oswald;
+            font-size: FZ(16);
+            font-weight: 300;
+            text-transform: uppercase;
+            width: 22rem;
+            height: 55px;
+            @include flex-center;
+            border-radius: 5px;
+            letter-spacing: 0.15em;
+            margin-top: 2em;
+        }
+    }
+}

@@ -64,6 +64,14 @@ br {
         object-fit: cover;
     }
 }
+.itemButton {
+    cursor: pointer;
+    width: 100%;
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
+}
 
 /* =================================
  *  モーダル共通スタイル
