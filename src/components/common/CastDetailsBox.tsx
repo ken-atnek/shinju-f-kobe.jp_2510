@@ -3,13 +3,14 @@ import Image from 'next/image';
 import { typeLabels } from '@/constants/castTypeLabels';
 import { badgeLabels } from '@/constants/castBadgeLabels';
 import type { CastDetail } from '@/types/CastDetails';
+import Link from 'next/link';
 
 type Props = {
   item: CastDetail;
 };
 
 const CastDetailsBox = ({ item }: Props) => (
-  <div className={styles.boxCastDetails}>
+  <Link href="/" className={styles.boxCastDetails}>
     {item.badges && item.badges.length > 0 && (
       <ul className={styles.wrapBadges}>
         {item.badges.map((badge, i) =>
@@ -95,7 +96,7 @@ const CastDetailsBox = ({ item }: Props) => (
         ) : null;
       })}
     </ul>
-  </div>
+  </Link>
 );
 
 export default CastDetailsBox;

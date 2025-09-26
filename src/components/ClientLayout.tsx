@@ -6,7 +6,7 @@
  * ======================================= */
 
 'use client';
-
+import Header from '@/components/common/Header';
 import { usePathname } from 'next/navigation';
 import RequireAge from '@/components/RequireAge';
 import SvgDefs from '@/components/SvgDefs';
@@ -22,6 +22,7 @@ export default function ClientLayout({
   return (
     <>
       <SvgDefs />
+      {!isAuthPage && <Header />}
       {isAuthPage ? (
         children
       ) : (

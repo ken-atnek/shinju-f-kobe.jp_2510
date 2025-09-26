@@ -1,0 +1,63 @@
+/* =================================
+ * 	HEADER
+ * ------------------------------ */
+@use "variable" as *;
+@use "svg" as *;
+@use "mixin" as *;
+/* stylelint-disable no-descending-specificity */
+/* stylelint-disable keyframes-name-pattern */
+/* stylelint-disable custom-property-pattern */
+// このファイル全体のルールを無効にする
+.containerHeader {
+    position: absolute;
+    left: 50%;
+    translate: -50%;
+    z-index: 5;
+    top: 2em;
+    width: 100%;
+    padding-inline: 4vw;
+    section {
+        display: flex;
+        width: 100%;
+        color: $dark-purple;
+        align-items: center;
+        gap: 0 0.5em;
+        article {
+            height: 7rem;
+            display: flex;
+            align-items: center;
+            background-color: $base-white;
+            border-radius: 100vmax;
+            padding-inline: 2em;
+            gap: 0 2em;
+            h1 {
+                font-size: FZ(32);
+                letter-spacing: 0.17em;
+            }
+            nav {
+                position: relative;
+                font-size: inherit;
+                flex: 1;
+                display: flex;
+                gap: 0 1em;
+                justify-content: space-between;
+                a {
+                    font-size: FZ(16);
+                    font-weight: 300;
+                }
+                .navTop {
+                    display: none;
+                }
+            }
+        }
+        button {
+            display: flex;
+            background-color: $base-white;
+            position: relative;
+            font-size: inherit;
+            width: 7rem;
+            aspect-ratio: 1;
+            border-radius: 50%;
+        }
+    }
+}
