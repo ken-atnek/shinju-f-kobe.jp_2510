@@ -27,3 +27,81 @@
     background-position: center #{$position};
     z-index: -1;
 }
+/* =================================
+ * 	下層ページ
+ * ------------------------------ */
+
+@mixin subPageH2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: inherit;
+    span {
+        @include Oswald;
+        font-size: FZ(128);
+        font-weight: 200;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+    h2 {
+        font-size: FZ(24);
+        font-weight: 300;
+        letter-spacing: 0.27em;
+    }
+}
+@mixin subPageContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 16em 2vw 10em;
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        translate: -50%;
+        width: 100vw;
+        bottom: 0;
+        height: 100%;
+        z-index: -1;
+        clip-path: polygon(
+            0 calc(100vw * tan(15deg)),
+            100% 0,
+            100% 100%,
+            0 100%
+        );
+    }
+    &::before {
+        background: url("../images/main-bg.webp") no-repeat center center /
+            cover;
+    }
+    &::after {
+        background-color: $base-purple;
+        mix-blend-mode: multiply;
+    }
+    .boxBlockBg {
+        position: absolute;
+        top: 20em;
+        left: -2vw;
+        width: 80vw;
+        aspect-ratio: 3;
+        background-color: #15001e;
+        rotate: 5deg;
+        z-index: -2;
+        &::before {
+            content: "";
+            position: absolute;
+            top: -36px;
+            left: 0;
+            width: 100%;
+            height: 52px;
+            background-image: url("../images/pearl01.webp");
+            background-repeat: repeat-x;
+            background-size: 52px auto;
+            background-position: center bottom;
+            z-index: -1;
+        }
+    }
+    .subPageH2 {
+        @include subPageH2;
+    }
+}

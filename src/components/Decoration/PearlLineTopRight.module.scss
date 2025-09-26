@@ -42,4 +42,10 @@
             rotate: 5deg;
         }
     }
+    &.center {
+        .bgPearl {
+            right: -40px;
+            transform-origin: right center;
+        }
+    }
 }

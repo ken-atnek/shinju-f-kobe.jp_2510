@@ -1,8 +1,8 @@
 /* =======================================
- *神戸ホットポイントグループ TOPページ
+ *真珠夫人 TOPページ
  * URL: /app/page.tsx
- * Created: 2025-08-18
- * Last updated: 2025-08-18
+ * Created: 2025-09-18
+ * Last updated: 2025-09-26
  * ======================================= */
 
 import type { Metadata } from 'next';
@@ -22,9 +22,10 @@ import ContainerAccess from '@/components/common/ContainerAccess';
 import ContainerFooter from '@/components/common/ContainerFooter';
 export const generateMetadata = (): Metadata => {
   return {
-    title: '神戸・三宮の風俗｜真珠夫人神戸本店',
+    title:
+      '神戸・三宮の人気風俗｜癒しと快楽のファッションヘルス「真珠夫人神戸本店」公式サイト',
     description: isRealProduction
-      ? '真珠夫人神戸本店のディスクリプション'
+      ? '神戸・三宮エリアで大人の癒しと快楽を求めるなら「真珠夫人神戸本店」。選び抜かれた女性による上質なサービスと贅沢なひとときをご提供いたします。出勤情報・在籍キャスト・イベント・キャンペーンなど最新情報を毎日更新中。。'
       : undefined,
   };
 };
