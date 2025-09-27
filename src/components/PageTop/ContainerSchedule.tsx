@@ -117,7 +117,7 @@ const ContainerSchedule = () => {
             </li>
           ))}
         </ul>
-        <Link href="/" className={styles.itemPageLink}>
+        <Link href="/schedule/" className={styles.itemPageLink}>
           明日以降の出勤情報を見る
         </Link>
       </article>

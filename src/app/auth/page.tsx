@@ -16,6 +16,7 @@ import clsx from 'clsx';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import PearlArc from '@/components/Decoration/PearlArc';
 import PearlLineTopRight from '@/components/Decoration/PearlLineTopRight';
+import Image from 'next/image';
 
 export default function PageEntrance() {
   const router = useRouter();
@@ -68,9 +69,16 @@ export default function PageEntrance() {
             size={isMobile ? 32 : 63}
           />
         </div>
-        <div className={styles.name}>
-          <span>真珠夫人</span>
-          <p>上質で妖艶。真珠のように艶めき煌めく大人の女性。</p>
+        <p className={styles.sidebarLogo}>
+          上質で妖艶。真珠のように艶めき煌めく大人の女性。
+        </p>
+        <div className={styles.itemLogo}>
+          <Image
+            src="/images/kobe/entrance-logo.webp"
+            alt="真珠夫人神戸本店"
+            width={812}
+            height={277}
+          />
         </div>
         <button onClick={handleApprove} disabled={isLoading}>
           <span>enter</span>
@@ -103,11 +111,11 @@ export default function PageEntrance() {
           三宮発、禁断の文学的官能を味わえるお店。
         </p>
         <div className={styles.blockInfo}>
-          <div className={styles.name}>
-            <span>真</span>
-            <span>珠</span>
-            <span>夫</span>
-            <span>人</span>
+          <div className={styles.logo}>
+            <svg width="232" height="248" aria-label="真珠夫人">
+              <title>真珠夫人</title>
+              <use href="#svg_logoSquare" />
+            </svg>
           </div>
           <div className={styles.boxInfo}>
             <h3>営業時間</h3>

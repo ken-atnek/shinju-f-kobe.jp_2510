@@ -24,14 +24,13 @@
         width: 100%;
         color: $dark-purple;
         align-items: center;
-        gap: 0 0.5em;
         article {
-            height: 7rem;
+            height: 9rem;
             display: flex;
             align-items: center;
             background-color: $base-white;
             border-radius: 100vmax;
-            padding-inline: 2em;
+            padding-inline: 3em;
             gap: 0 2em;
             @include sp {
                 position: fixed;
@@ -41,10 +40,15 @@
                 translate: 100vw;
             }
             h1 {
-                font-size: FZ(32);
-                letter-spacing: 0.17em;
+                font-size: inherit;
+                width: 11.25em;
                 a {
                     font-size: inherit;
+                    width: 100%;
+                    svg {
+                        fill: $dark-purple;
+                        aspect-ratio: 268/85;
+                    }
                 }
             }
             nav {
@@ -52,7 +56,7 @@
                 font-size: inherit;
                 flex: 1;
                 display: flex;
-                gap: 0 1em;
+                gap: 0 0.8em;
                 justify-content: space-between;
                 a {
                     font-size: FZ(16);

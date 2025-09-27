@@ -76,27 +76,21 @@
                 top: 3vw;
             }
         }
-        .name {
-            font-size: inherit;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5em 0;
-            span {
-                font-size: FZ(128);
-                font-weight: 300;
-                letter-spacing: 0.15em;
-                @include sp {
-                    font-size: FZ(64);
-                }
+        .sidebarLogo {
+            font-size: FZ(20);
+            font-weight: 300;
+            letter-spacing: 0.27em;
+            margin-bottom: 1em;
+            @include sp {
+                font-size: FZ(14);
             }
-            p {
-                font-size: FZ(20);
-                font-weight: 300;
-                letter-spacing: 0.27em;
-                @include sp {
-                    font-size: FZ(14);
-                }
+        }
+        .itemLogo {
+            font-size: inherit;
+            width: 70%;
+            max-width: 812px;
+            img {
+                width: 100%;
             }
         }
         button {
@@ -198,7 +192,6 @@
             0 100%
         );
 
-        // 移動した分の下余白を削除してレイアウト調整
         margin-bottom: calc(-100vw * tan(15deg));
         @include sp {
             padding-top: 30vw;
@@ -247,15 +240,27 @@
                 flex-direction: column;
                 gap: 6vw 0;
             }
-            .name {
-                display: grid;
+            .logo {
+                position: relative;
                 font-size: inherit;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.4em;
-                span {
-                    display: inline-block;
-                    font-weight: 300;
-                    font-size: FZ(128);
+                width: 14.5em;
+                @include sp {
+                    width: 50vw;
+                    margin-top: 8vw;
+                }
+                &::before {
+                    content: "";
+                    position: absolute;
+                    inset: 0;
+                    margin: auto;
+                    width: 8rem;
+                    aspect-ratio: 1;
+                    background: url("../images/pearl02.webp") no-repeat center
+                        center/contain;
+                }
+                svg {
+                    fill: $base-white;
+                    aspect-ratio: 232/248;
                 }
             }
             .boxInfo {
@@ -344,7 +349,7 @@
             z-index: -1;
         }
         &::before {
-            @include pearl-line(54px, top);
+            @include pearl-line(66px, top);
             @include sp {
                 @include pearl-line(36px, top);
             }

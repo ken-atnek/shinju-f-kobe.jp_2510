@@ -73,7 +73,12 @@ const Header = () => {
           }}
         >
           <h1>
-            <Link href="/">真珠夫人</Link>
+            <Link href="/">
+              <svg width="268" height="85" aria-label="真珠夫人神戸本店">
+                <title>真珠夫人神戸本店</title>
+                <use href="#svg_logoMain" />
+              </svg>
+            </Link>
           </h1>
           <nav>
             {navMenu.map((item) =>

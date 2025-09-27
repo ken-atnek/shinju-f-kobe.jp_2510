@@ -35,6 +35,13 @@
             rotate: -15deg;
         }
     }
+    &.systemPage {
+        .bgPearl {
+            right: -27px;
+            transform-origin: right center;
+            rotate: -15deg;
+        }
+    }
     &.left {
         .bgPearl {
             left: -27px;

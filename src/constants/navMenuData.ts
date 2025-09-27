@@ -20,7 +20,7 @@ export const navMenu = [
   },
   {
     id: 'navPhotoBlog',
-    href: 'https://www.cityheaven.net/hyogo/A2802/A280201/koubehp/diarylist/?of=y',
+    href: 'https://www.yahoo.co.jp/',
     label: '写メ日記',
     labelEn: 'blog',
     target: true,
@@ -33,20 +33,21 @@ export const navMenu = [
   },
   {
     id: 'navRealTime',
-    href: '/realtime/',
+    href: 'https://www.yahoo.co.jp/',
     label: 'リアルタイム',
     labelEn: 'real time info ',
+    target: true,
   },
   {
     id: 'navReserve',
-    href: 'https://www.cityheaven.net/hyogo/A2802/A280201/koubehp/S6ShopReservation/?pcmode=sp',
+    href: 'https://www.yahoo.co.jp/',
     label: 'WEB予約',
     labelEn: 'reservation',
     target: true,
   },
   {
     id: 'navRecruit',
-    href: 'https://kobe-baito.jp/',
+    href: 'https://www.yahoo.co.jp/',
     label: '求人情報',
     labelEn: 'job offer',
     target: true,

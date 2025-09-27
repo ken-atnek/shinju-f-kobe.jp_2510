@@ -75,7 +75,7 @@ const ContainerSystem = () => {
               1,000<i>円〜</i>
             </span>
           </div>
-          <Link href="/" className={styles.itemPageLink}>
+          <Link href="/system/" className={styles.itemPageLink}>
             その他の料金システムはこちら
           </Link>
         </div>
