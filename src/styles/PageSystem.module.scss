@@ -60,7 +60,7 @@
         }
     }
     .sidebarH3 {
-        color: #ff8800;
+        color: #f80;
         @include Oswald;
         text-transform: uppercase;
         font-size: FZ(40);
@@ -187,7 +187,7 @@
         display: flex;
         gap: 0 3em;
         h4 {
-            color: #ff8800;
+            color: #f80;
             @include Oswald;
             font-size: FZ(40);
             font-weight: 200;
@@ -228,6 +228,7 @@
         }
     }
 }
+
 /* =================================
  *ショップインフォ
  * ------------------------------ */
@@ -248,7 +249,6 @@
         justify-content: center;
         align-items: flex-start;
         gap: 0 3em;
-
         @include sp {
             flex-direction: column;
             align-items: center;
@@ -274,7 +274,6 @@
                 aspect-ratio: 232/248;
             }
         }
-
         .boxInfo {
             position: relative;
             font-size: inherit;

@@ -19,6 +19,7 @@ import ContainerJobOffer from '@/components/PageTop/ContainerJobOffer';
 import ContainerMensJobOffer from '@/components/PageTop/ContainerMensJobOffer';
 import ContainerAccess from '@/components/common/ContainerAccess';
 import ContainerFooter from '@/components/common/ContainerFooter';
+import ContainerMobileMenu from '@/components/PageTop/ContainerMobileMenu';
 export const generateMetadata = (): Metadata => {
   return {
     title:
@@ -32,6 +33,7 @@ export default function PageTop() {
   return (
     <main>
       <ContainerMovie />
+      <ContainerMobileMenu />
       <ContainerShopInfo />
       <PearlLineTopRight zIndex={2} positionClass="tpoPage" />
       <ContainerPickUp />
