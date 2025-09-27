@@ -34,7 +34,14 @@
         }
     }
 }
-
+.objectCirclePearl {
+    position: absolute;
+    font-size: inherit;
+    &.potionRight {
+        left: 90%;
+        top: 00;
+    }
+}
 /* =================================
  *料金一覧
  * ------------------------------ */

@@ -1,0 +1,493 @@
+/* =================================
+ * 	キャストプロフィール
+ * ------------------------------ */
+@use "variable" as *;
+@use "svg" as *;
+@use "mixin" as *;
+/* stylelint-disable no-descending-specificity */
+/* stylelint-disable keyframes-name-pattern */
+/* stylelint-disable custom-property-pattern */
+// このファイル全体のルールを無効にする
+
+/* =================================
+ *HEAD
+ * ------------------------------ */
+.containerHeadNav {
+    display: flex;
+    justify-content: center;
+    padding: 12em 0 3em;
+    &::before {
+        @include pearl-line(54px, bottom);
+    }
+}
+/* =================================
+ *名前・サイズ等
+ * ------------------------------ */
+.containerProfileTop {
+    display: flex;
+    flex-direction: column;
+    padding: 0 4vw;
+    align-items: center;
+    background-color: $base-purple;
+    article {
+        max-width: $articleMaxWidth;
+        background-color: $base-white;
+        color: $dark-purple;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0 2em;
+        .itemImage {
+            position: relative;
+            width: 100%;
+            // height: 100%;
+            img {
+                aspect-ratio: 3/4;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        .profileInfo {
+            font-size: inherit;
+            display: flex;
+            flex-direction: column;
+            padding-top: 3em;
+            padding-bottom: 2em;
+            .wrapBadges {
+                font-size: inherit;
+                height: 5rem;
+                display: flex;
+                @include sp {
+                    position: absolute;
+                    left: 0;
+                    bottom: 100%;
+                }
+                ul {
+                    display: flex;
+                    font-size: inherit;
+                    --badge-color: #000;
+                    gap: 0 6px;
+                    li {
+                        background-color: var(--badge-color);
+                        color: $base-white;
+                        width: 8rem;
+                        @include flex-center;
+                        @include Oswald;
+                        font-size: FZ(16);
+                        text-transform: uppercase;
+                        letter-spacing: 0.16em;
+                        &.new {
+                            --badge-color: #148e5c;
+                        }
+                        &.trial {
+                            --badge-color: #14668e;
+                        }
+                        &.up {
+                            --badge-color: #910a67;
+                        }
+                    }
+                }
+            }
+            .castNameEn {
+                @include Oswald;
+                font-size: FZ(24);
+                font-weight: 200;
+                color: $dark-pink;
+                letter-spacing: 0.17em;
+                margin-top: 2em;
+            }
+            .castName {
+                font-size: FZ(80);
+                font-weight: 300;
+                margin-top: 0.1em;
+                @include sp {
+                    font-size: FZ(56);
+                }
+            }
+            .age {
+                @include Oswald;
+                font-size: FZ(24);
+                font-weight: 200;
+                letter-spacing: 0.15em;
+                margin-top: 0.8em;
+                &::before {
+                    content: "Age.";
+                }
+            }
+            .castSize {
+                font-size: inherit;
+                display: flex;
+                align-items: center;
+                margin-top: 0.3em;
+                span {
+                    @include Oswald;
+                    font-size: FZ(20);
+                    font-weight: 200;
+                    letter-spacing: 0.2em;
+                    &::before {
+                        text-transform: uppercase;
+                    }
+                    &:not(:last-of-type) {
+                        &::after {
+                            content: "/";
+                            margin-inline: 0.2em;
+                        }
+                    }
+                }
+                .tall {
+                    &::before {
+                        content: "t.";
+                    }
+                }
+                .bust {
+                    &::before {
+                        content: "b.";
+                    }
+                    i {
+                        text-transform: uppercase;
+                        &::before,
+                        &::after {
+                            display: inline-block;
+                            translate: 0 -0.05em;
+                        }
+                        &::before {
+                            content: "[";
+                        }
+                        &::after {
+                            content: "]";
+                        }
+                    }
+                }
+                .west {
+                    &::before {
+                        content: "w.";
+                    }
+                }
+                .hip {
+                    &::before {
+                        content: "h.";
+                    }
+                }
+            }
+            .wrapRanking {
+                position: relative;
+                font-size: inherit;
+                width: 100%;
+                padding-right: 3em;
+                display: flex;
+                justify-content: flex-end;
+                padding-top: 2em;
+                @include sp {
+                    position: absolute;
+                    bottom: 100%;
+                    right: 0;
+                    padding-right: unset;
+                }
+                .itemRanking {
+                    position: relative;
+                    font-size: inherit;
+                    background-color: #030637;
+                    color: $base-white;
+                    width: 8rem;
+                    aspect-ratio: 1;
+                    @include flex-center;
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: -1rem;
+                        right: -1rem;
+                        width: 2.5rem;
+                        aspect-ratio: 1;
+                        background: url("../images/pearl03.webp") no-repeat
+                            center center / contain;
+                        filter: drop-shadow(2px 2px 2px rgba(#000, 0.25));
+                    }
+                    span {
+                        @include Oswald;
+                        font-size: FZ(40);
+                        font-weight: 300;
+                        display: flex;
+                        align-items: center;
+                        &::before {
+                            letter-spacing: 0.07em;
+                            display: inline-block;
+                            content: "NO.";
+                            font-size: 0.35em;
+                            translate: 0 0.5em;
+                        }
+                    }
+                }
+            }
+            .listType {
+                display: flex;
+                flex-wrap: wrap;
+                font-size: inherit;
+                gap: 0.5em 0.5em;
+                margin-top: 1em;
+                @include sp {
+                    align-items: center;
+                    margin-top: 4vw;
+                }
+                li {
+                    background-color: $light-purple;
+                    color: $base-white;
+                    font-size: inherit;
+                    border-radius: 100vmax;
+                    padding: 0.5em 1em;
+                    span {
+                        font-size: FZ(16);
+                        font-weight: 300;
+                        letter-spacing: 0.05em;
+                        &::before {
+                            content: "#";
+                        }
+                    }
+                }
+            }
+            .catchCopy {
+                font-size: FZ(24);
+                font-weight: 300;
+                letter-spacing: 0.04em;
+                margin-top: 1.6em;
+                @include sp {
+                    margin-top: 2vw;
+                    font-size: FZ(18);
+                }
+            }
+            .wrapLink {
+                flex: 1;
+
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                align-items: end;
+                margin-right: 3em;
+                font-size: inherit;
+                gap: 0 1rem;
+                a {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    font-size: inherit;
+                    padding-block: 0.8em;
+                    padding-left: 2em;
+                    border-radius: 5px;
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        right: 0;
+                        width: 1.6em;
+                        height: 100%;
+                        background-color: rgba($base-white, 0.25);
+                    }
+                    span {
+                        position: relative;
+                        font-size: FZ(20);
+                        color: $base-white;
+                        padding-left: 1.8em;
+                        letter-spacing: 0.17em;
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            left: 0;
+                            top: 50%;
+                            translate: 0 -50%;
+                            width: 1em;
+                        }
+                    }
+                }
+                .photoBlog {
+                    background-color: #003dc2;
+                    span {
+                        &::before {
+                            @include svg-icon-camera("f4e1fc");
+                        }
+                    }
+                }
+                .reservationUrl {
+                    background-color: #c4003e;
+                    span {
+                        &::before {
+                            @include svg-icon-calender("f4e1fc");
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/* =================================
+ *スケジュール
+ * ------------------------------ */
+.containerSchedule {
+    display: flex;
+    justify-content: center;
+    padding-inline: 4vw;
+    .objectCirclePearl {
+        position: absolute;
+        font-size: inherit;
+        &.potionLeft {
+            right: 95%;
+            top: 50%;
+            translate: 0 -50%;
+        }
+        &.potionRight {
+            left: 95%;
+            top: 50%;
+            translate: 0 -50%;
+        }
+    }
+    article {
+        max-width: $articleMaxWidth;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding-block: 2em;
+        .boxH3 {
+            position: relative;
+            font-size: inherit;
+            @include flex-center(column);
+            .sidebarH3 {
+                @include Oswald;
+                font-size: FZ(96);
+                font-weight: 200;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                position: relative;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: 50%;
+                    translate: -50%;
+                    width: 4.6rem;
+                    aspect-ratio: 1;
+                    bottom: calc(100% + 0.1em);
+                    background: url("../images/pearl02.webp") no-repeat center
+                        center/contain;
+                }
+            }
+            h3 {
+                font-size: FZ(16);
+                letter-spacing: 0.2em;
+            }
+        }
+        .scheduleList {
+            font-size: inherit;
+            display: grid;
+            grid-template-columns: auto auto 1fr;
+            width: 100%;
+            max-width: 49rem;
+
+            li {
+                position: relative;
+                font-size: inherit;
+                grid-column: span 3;
+                display: grid;
+                grid-template-columns: subgrid;
+                height: 3em;
+                padding-left: 4.4em;
+                align-items: center;
+                gap: 0 1em;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: 2em;
+                    top: 50%;
+                    translate: 0 -50%;
+                    width: 2rem;
+                    aspect-ratio: 1;
+                    background: url("../images/pearl02.webp") no-repeat center
+                        center/contain;
+                }
+                &:not(:last-of-type) {
+                    border-bottom: 1px solid;
+                }
+                .wrapDate {
+                    grid-column: span 2;
+                    display: grid;
+                    font-size: inherit;
+                    grid-template-columns: subgrid;
+                    align-items: center;
+                    gap: 0 0.5em;
+                    .itemDate {
+                        font-size: FZ(32);
+                        font-weight: 300;
+                        letter-spacing: 0.1em;
+                        justify-self: end;
+                    }
+                    .itemWeek {
+                        font-size: FZ(14);
+                        letter-spacing: 0.1em;
+                        justify-self: center;
+                        &::before {
+                            content: "[";
+                            margin-right: 0.1em;
+                        }
+                        &::after {
+                            margin-left: 0.1em;
+                            content: "]";
+                        }
+                    }
+                    &.saturday {
+                        color: #a7dcff;
+                    }
+                    &.sunday {
+                        color: #ffa7ea;
+                    }
+                }
+                .scheduleTime {
+                    font-size: inherit;
+                    display: flex;
+                    justify-content: center;
+                    span {
+                        font-size: FZ(32);
+                        font-weight: 300;
+                        letter-spacing: 0.1em;
+                        &:nth-of-type(2n) {
+                            &::before {
+                                content: "-";
+                                margin-inline: 0.2em;
+                            }
+                        }
+                    }
+                }
+                .scheduleStatus {
+                    display: flex;
+                    justify-content: center;
+                    font-size: FZ(16);
+                    letter-spacing: 0.1em;
+                }
+                .noData {
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}
+/* =================================
+ *BOTTOMコンテンツ
+ * ------------------------------ */
+.containerBottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $base-purple;
+    padding-inline: 4vw;
+    .itemImage {
+        position: relative;
+        width: 100%;
+        // height: 100%;
+        img {
+            aspect-ratio: 3/4;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    article {
+        max-width: $articleMaxWidth;
+        background-color: $base-white;
+        color: $dark-purple;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

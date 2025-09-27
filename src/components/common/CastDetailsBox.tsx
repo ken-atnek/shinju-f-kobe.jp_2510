@@ -13,7 +13,7 @@ type Props = {
 
 const CastDetailsBox = ({ item, variant = 'default' }: Props) => (
   <Link
-    href="/"
+    href={`/profile/?id=${item.castId}`}
     className={clsx(
       styles.boxCastDetails,
       variant === 'notToday' && styles.notToday

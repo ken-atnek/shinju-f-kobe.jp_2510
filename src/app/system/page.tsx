@@ -12,6 +12,7 @@ import ContainerFooter from '@/components/common/ContainerFooter';
 import ContainerAccess from '@/components/common/ContainerAccess';
 import BlockPriceList from '@/components/PageSystem/BlockPriceList';
 import BlockShopInfo from '@/components/PageSystem/BlockShopInfo';
+
 export const metadata: Metadata = {
   title:
     '在籍キャスト一覧｜神戸・三宮の風俗｜ファッションヘルス「真珠夫人神戸本店」',

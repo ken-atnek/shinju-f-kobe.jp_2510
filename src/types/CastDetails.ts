@@ -20,4 +20,15 @@ export type CastDetail = {
     scheduleStatus?: string;
   };
   badges?: string[];
+  profileImages: string[];
+  photoBlogUrl?: string;
+  reservationUrl?: string;
+  castMessage?: string;
+  shopComment?: string;
+  questions?: QAItem[];
+};
+
+export type QAItem = {
+  question: string;
+  answer: string;
 };
