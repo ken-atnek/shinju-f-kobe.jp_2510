@@ -23,20 +23,20 @@ const ContainerSystem = () => {
       <div className={styles.boxBlockBg}></div>
       <div className={clsx(styles.objectCirclePearl, styles.potionRight)}>
         <PearlArc
-          count={21}
-          radius={450}
+          count={isMobile ? 21 : 21}
+          radius={isMobile ? 200 : 450}
           startAngle={90}
           endAngle={270}
-          size={isMobile ? 32 : 68}
+          size={isMobile ? 30 : 68}
         />
       </div>
       <div className={clsx(styles.objectCirclePearl, styles.potionLeft)}>
         <PearlArc
-          count={23}
-          radius={500}
+          count={isMobile ? 25 : 23}
+          radius={isMobile ? 240 : 500}
           startAngle={-90}
           endAngle={90}
-          size={isMobile ? 32 : 68}
+          size={isMobile ? 30 : 68}
         />
       </div>
       <article className={styles.blockSystem}>
@@ -57,7 +57,7 @@ const ContainerSystem = () => {
               40<i>分</i>
             </span>
             <span className={styles.price}>
-              15,000<i>円</i>
+              16,000<i>円</i>
             </span>
           </div>
           <div className={styles.specialPrice}>
@@ -66,7 +66,7 @@ const ContainerSystem = () => {
               40<i>分</i>
             </span>
             <span className={styles.price}>
-              15,000<i>円</i>
+              14,000<i>円</i>
             </span>
           </div>
           <div className={styles.nominationFee}>

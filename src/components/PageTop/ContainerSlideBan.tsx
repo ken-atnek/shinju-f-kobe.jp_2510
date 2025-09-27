@@ -38,6 +38,15 @@ const ContainerSlideBan = () => {
               gap: '3rem',
               speed: 800,
               padding: '15%',
+              breakpoints: {
+                768: {
+                  padding: '6%',
+                  perPage: 1,
+                  speed: 800,
+                  gap: '2vw',
+                  focus: 0,
+                },
+              },
             }}
             aria-label="バナー"
           >

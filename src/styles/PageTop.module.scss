@@ -22,6 +22,9 @@
         --object-second: 0.1;
         --object-number: 0.01;
         --random-number: 0.05;
+        @include sp {
+            font-size: FZ(80);
+        }
         span {
             $BaseRotate: 15deg;
             $BaseX: 10px;
@@ -81,6 +84,9 @@
         font-size: FZ(24);
         font-weight: 300;
         letter-spacing: 0.27em;
+        @include sp {
+            font-size: FZ(18);
+        }
     }
 }
 .itemPageLink {
@@ -93,6 +99,11 @@
     font-size: FZ(20);
     letter-spacing: 0.12em;
     border-radius: 100vmax;
+    @include sp {
+        max-width: unset;
+        height: 3em;
+        font-size: FZ(18);
+    }
 }
 
 /* =================================
@@ -101,6 +112,20 @@
 .containerMovie {
     position: relative;
     @include flex-center;
+    z-index: 2;
+    &::after {
+        content: "";
+        position: absolute;
+        top: 5em;
+        right: -4vw;
+        width: 20vw;
+        @include svg-logo-vertical("ffffff");
+        z-index: 1;
+        opacity: 0.2;
+        @include sp {
+            display: none;
+        }
+    }
     .itemMovie {
         width: 100%;
         aspect-ratio: 16/9;
@@ -109,6 +134,18 @@
             height: 100%;
             object-fit: cover;
             display: block;
+        }
+    }
+    .objectCirclePearl {
+        position: absolute;
+        font-size: inherit;
+        display: none;
+        @include sp {
+            display: block;
+            &.potionLeft {
+                right: 85%;
+                bottom: 10vw;
+            }
         }
     }
 }
@@ -126,21 +163,43 @@
         100% calc(100% - 100vw * tan(15deg)),
         0 100%
     );
+    @include sp {
+        padding: 8vw 4vw 35vw;
+    }
     .blockInfo {
         font-size: inherit;
         display: flex;
         justify-content: center;
         align-items: flex-start;
         gap: 0 3em;
-        .name {
-            display: grid;
+        @include sp {
+            flex-direction: column;
+            align-items: center;
+            gap: 4vw 0;
+        }
+        .logo {
             font-size: inherit;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0.4em;
-            span {
-                display: inline-block;
-                font-weight: 300;
-                font-size: FZ(119);
+            width: 14.5em;
+            @include sp {
+                display: none;
+            }
+            svg {
+                width: 100%;
+                fill: $base-white;
+                aspect-ratio: 232/248;
+            }
+        }
+        .logoMobile {
+            font-size: inherit;
+            display: none;
+            @include sp {
+                width: 80vw;
+                display: block;
+            }
+            svg {
+                width: 100%;
+                fill: $base-white;
+                aspect-ratio: 268/85;
             }
         }
         .boxInfo {
@@ -151,9 +210,18 @@
             gap: 0.8em 2em;
             align-items: center;
             padding-top: 1em;
+            @include sp {
+                width: 100%;
+                gap: 2vw 4vw;
+                grid-template-columns: 35% 1fr;
+            }
             h3 {
                 font-size: FZ(20);
                 letter-spacing: 0.12em;
+                @include sp {
+                    font-size: FZ(18);
+                    justify-self: end;
+                }
             }
             .time {
                 font-size: inherit;
@@ -163,6 +231,9 @@
                     font-weight: 200;
                     font-size: FZ(32);
                     letter-spacing: 0.12em;
+                    @include sp {
+                        font-size: FZ(30);
+                    }
                     &:nth-of-type(2) {
                         &::before {
                             content: "~";
@@ -176,11 +247,18 @@
                 display: flex;
                 align-items: center;
                 gap: 0 0.5em;
+                @include sp {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
                 a {
                     @include Oswald;
                     font-weight: 200;
                     font-size: FZ(32);
                     letter-spacing: 0.12em;
+                    @include sp {
+                        font-size: FZ(30);
+                    }
                 }
                 span {
                     font-size: FZ(20);
@@ -192,6 +270,10 @@
                 font-size: FZ(20);
                 letter-spacing: 0.12em;
                 margin-top: 0.5em;
+                @include sp {
+                    font-size: FZ(18);
+                    justify-self: center;
+                }
             }
             .linkMap {
                 @include Oswald;
@@ -204,6 +286,10 @@
                 padding: 0.5em 2em;
                 letter-spacing: 0.15em;
                 border-radius: 5px;
+                @include sp {
+                    justify-self: center;
+                    margin-top: 2vw;
+                }
             }
         }
     }
@@ -224,6 +310,13 @@
     font-size: inherit;
     aspect-ratio: 1.874;
     gap: 0 2em;
+    @include sp {
+        display: flex;
+        flex-direction: column;
+        aspect-ratio: unset;
+        gap: 0;
+        padding: 4vw;
+    }
     .itemImage {
         width: 100%;
         height: 100%;
@@ -241,10 +334,19 @@
         flex-direction: column;
         justify-content: space-between;
         padding: 2em 0;
+        @include sp {
+            padding: 0;
+            justify-content: unset;
+        }
         .wrapBadges {
             font-size: inherit;
             height: 5rem;
             display: flex;
+            @include sp {
+                position: absolute;
+                left: 0;
+                bottom: 100%;
+            }
             ul {
                 display: flex;
                 font-size: inherit;
@@ -279,6 +381,8 @@
             margin-top: 4em;
             @include sp {
                 min-width: unset;
+                margin-top: 2vw;
+                align-items: center;
             }
             .castNameEn {
                 @include Oswald;
@@ -291,6 +395,9 @@
                 font-size: FZ(84);
                 font-weight: 300;
                 margin-top: 0.1em;
+                @include sp {
+                    font-size: FZ(56);
+                }
             }
             .age {
                 @include Oswald;
@@ -366,6 +473,12 @@
             display: flex;
             justify-content: flex-end;
             padding-top: 2em;
+            @include sp {
+                position: absolute;
+                bottom: 100%;
+                right: 0;
+                padding-right: unset;
+            }
             .itemRanking {
                 position: relative;
                 font-size: inherit;
@@ -408,6 +521,10 @@
             gap: 0.3em;
             flex: 1;
             align-items: flex-end;
+            @include sp {
+                align-items: center;
+                margin-top: 4vw;
+            }
             li {
                 background-color: $light-purple;
                 color: $base-white;
@@ -429,6 +546,10 @@
             font-weight: 300;
             letter-spacing: 0.04em;
             margin-top: 1.6em;
+            @include sp {
+                margin-top: 2vw;
+                font-size: FZ(18);
+            }
         }
     }
 }
@@ -441,6 +562,9 @@
     display: flex;
     justify-content: center;
     z-index: 2;
+    @include sp {
+        padding: 0 0 12vw;
+    }
     article {
         display: flex;
         justify-content: center;
@@ -451,6 +575,10 @@
             font-size: inherit;
             max-width: 1063px;
             container-type: inline-size;
+            @include sp {
+                max-width: unset;
+                width: 100vw;
+            }
             &::before {
                 content: "";
                 position: absolute;
@@ -461,6 +589,13 @@
                     center/contain;
                 aspect-ratio: 341/170;
                 z-index: 3;
+                @include sp {
+                    right: unset;
+                    left: 50%;
+                    translate: -50%;
+                    top: -20vw;
+                    width: 85vw;
+                }
             }
             :global(.splide__track),
             :global(.splide__list),
@@ -469,6 +604,25 @@
             }
             :global(.splide__pagination) {
                 display: none;
+            }
+            @include sp {
+                :global(.splide__slide) {
+                    width: 90% !important;
+                }
+                :global(.splide__pagination) {
+                    display: flex;
+                    translate: 0 8vw;
+                    gap: 0 3vw;
+                }
+                :global(.splide__pagination__page) {
+                    width: 3vw;
+                    height: 3vw;
+                    background-color: $base-white;
+                }
+                :global(.splide__pagination__page.is-active) {
+                    background-color: #148e5c;
+                    transform: scale(1);
+                }
             }
             :global(.splide__arrows) {
                 width: 100%;
@@ -511,6 +665,9 @@
 .containerSlideBan {
     padding: 2em 0 3em;
     background-color: $dark-purple;
+    @include sp {
+        padding: 4vw 0 10vw;
+    }
     .bannerList {
         position: relative;
         width: 100%;
@@ -533,6 +690,28 @@
                 object-fit: cover;
             }
         }
+        @include sp {
+            min-height: 10vw;
+            :global(.splide__track),
+            :global(.splide__list),
+            :global(.splide__slide) {
+                min-height: 10vw;
+            }
+            :global(.splide__pagination) {
+                display: flex;
+                translate: 0 8vw;
+                gap: 0 3vw;
+            }
+            :global(.splide__pagination__page) {
+                width: 3vw;
+                height: 3vw;
+                background-color: $base-white;
+            }
+            :global(.splide__pagination__page.is-active) {
+                background-color: #148e5c;
+                transform: scale(1);
+            }
+        }
     }
 }
 
@@ -544,6 +723,9 @@
     justify-content: center;
     padding: 5em 2vw 3em;
     z-index: 2;
+    @include sp {
+        padding: 8vw 4vw;
+    }
     article {
         max-width: 129rem;
         display: flex;
@@ -556,6 +738,12 @@
             font-size: inherit;
             margin-top: 3em;
             gap: 0 1em;
+            @include sp {
+                margin-top: 6vw;
+                grid-template-columns: unset;
+                grid-auto-flow: row;
+                gap: 8vw 0;
+            }
             .innerRanking {
                 position: relative;
                 width: 100%;
@@ -589,6 +777,9 @@
     align-items: center;
     padding: 18em 0 4em;
     z-index: 1;
+    @include sp {
+        padding: 40vw 0 10vw;
+    }
     &::before,
     &::after {
         content: "";
@@ -605,6 +796,9 @@
             100% calc(100% - 100vw * tan(15deg)),
             0 100%
         );
+        @include sp {
+            height: calc(100% - 4vw);
+        }
     }
     &::before {
         background: url("../images/main-bg.webp") no-repeat center center /
@@ -623,6 +817,9 @@
         background-color: #15001e;
         rotate: 5deg;
         z-index: -2;
+        @include sp {
+            width: 80vw;
+        }
         &::before {
             content: "";
             position: absolute;
@@ -635,6 +832,11 @@
             background-size: 52px auto;
             background-position: center bottom;
             z-index: -1;
+            @include sp {
+                top: -12px;
+                height: 24px;
+                background-size: 24px auto;
+            }
         }
     }
     .objectCirclePearl {
@@ -656,6 +858,9 @@
         flex-direction: column;
         align-items: center;
         gap: 3em 0;
+        @include sp {
+            padding-inline: 4vw;
+        }
         &::before {
             content: "";
             position: absolute;
@@ -666,6 +871,10 @@
             top: -10rem;
             background: url("../images/pearl02.webp") no-repeat center
                 center/contain;
+            @include sp {
+                width: 12vw;
+                top: -14vw;
+            }
         }
         .boxDetails {
             position: relative;
@@ -673,6 +882,9 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            @include sp {
+                width: 100%;
+            }
             .normalPrice {
                 position: relative;
                 display: flex;
@@ -692,6 +904,9 @@
                 .min {
                     font-size: FZ(56);
                     font-weight: 100;
+                    @include sp {
+                        font-size: FZ(50);
+                    }
                     i {
                         font-size: 0.3em;
                     }
@@ -699,6 +914,9 @@
                 .price {
                     font-size: FZ(56);
                     font-weight: 100;
+                    @include sp {
+                        font-size: FZ(50);
+                    }
                     i {
                         font-size: 0.3em;
                     }
@@ -724,6 +942,9 @@
                     font-size: FZ(96);
                     font-weight: 100;
                     line-height: 1em;
+                    @include sp {
+                        font-size: FZ(80);
+                    }
                     i {
                         font-size: 0.3em;
                     }
@@ -732,6 +953,9 @@
                     font-size: FZ(96);
                     font-weight: 100;
                     line-height: 1em;
+                    @include sp {
+                        font-size: FZ(80);
+                    }
                     i {
                         font-size: 0.3em;
                     }
@@ -763,6 +987,9 @@
         position: relative;
         font-size: inherit;
         margin-top: 5em;
+        @include sp {
+            margin-top: 10vw;
+        }
         .bannerList {
             position: relative;
             width: 100%;
@@ -790,6 +1017,28 @@
                     object-fit: cover;
                 }
             }
+            @include sp {
+                min-height: 10vw;
+                :global(.splide__track),
+                :global(.splide__list),
+                :global(.splide__slide) {
+                    min-height: 10vw;
+                }
+                :global(.splide__pagination) {
+                    display: flex;
+                    translate: 0 8vw;
+                    gap: 0 3vw;
+                }
+                :global(.splide__pagination__page) {
+                    width: 3vw;
+                    height: 3vw;
+                    background-color: $base-white;
+                }
+                :global(.splide__pagination__page.is-active) {
+                    background-color: #148e5c;
+                    transform: scale(1);
+                }
+            }
         }
     }
 }
@@ -802,6 +1051,9 @@
     justify-content: center;
     padding: 5em 2vw 1em;
     z-index: 2;
+    @include sp {
+        padding: 8vw 4vw 6vw;
+    }
     article {
         max-width: 129rem;
         display: flex;
@@ -825,6 +1077,9 @@
             font-size: FZ(20);
             letter-spacing: 0.1em;
             margin-top: 1em;
+            @include sp {
+                font-size: FZ(16);
+            }
         }
         .listSchedule {
             display: grid;
@@ -833,6 +1088,12 @@
             font-size: inherit;
             margin-top: 2em;
             gap: 3em 1em;
+            @include sp {
+                margin-top: 6vw;
+                grid-template-columns: unset;
+                grid-auto-flow: row;
+                gap: 8vw 0;
+            }
             .innerSchedule {
                 position: relative;
                 width: 100%;
@@ -861,6 +1122,9 @@
     display: flex;
     flex-direction: column;
     padding: 0 2vw 8vw;
+    @include sp {
+        padding: 8vw 4vw 20vw;
+    }
     &::before,
     &::after {
         content: "";
@@ -895,6 +1159,9 @@
         background-color: #15001e;
         rotate: 5deg;
         z-index: -3;
+        @include sp {
+            width: 80vw;
+        }
         &::before {
             content: "";
             position: absolute;
@@ -907,6 +1174,11 @@
             background-size: 52px auto;
             background-position: center bottom;
             z-index: -1;
+            @include sp {
+                top: -12px;
+                height: 24px;
+                background-size: 24px auto;
+            }
         }
     }
     article {
@@ -915,12 +1187,21 @@
         align-self: center;
         grid-template-columns: repeat(2, 1fr);
         padding-top: 20vw;
+        @include sp {
+            grid-template-columns: unset;
+            grid-auto-flow: row;
+        }
         .innerBlock {
             position: relative;
             display: flex;
             flex-direction: column;
             font-size: inherit;
             grid-column-start: 2;
+            @include sp {
+                display: grid;
+                grid-column-start: unset;
+                grid-template-columns: repeat(2, 1fr);
+            }
             &::before {
                 content: "";
                 position: absolute;
@@ -931,11 +1212,25 @@
                 background: url("../images/image-job-offer.webp") no-repeat
                     center center / contain;
                 aspect-ratio: 980/1688;
+                @include sp {
+                    right: unset;
+                    left: -4vw;
+                    z-index: -1;
+                    top: unset;
+                    translate: unset;
+                    bottom: 0;
+                    width: 70vw;
+                }
             }
             h2 {
                 font-size: FZ(36);
                 font-weight: 300;
                 letter-spacing: 0.4em;
+                grid-column-start: 2;
+                @include sp {
+                    font-size: FZ(16);
+                    justify-self: center;
+                }
             }
             .enTitle {
                 display: flex;
@@ -946,11 +1241,22 @@
                 letter-spacing: 0.3em;
                 text-transform: uppercase;
                 translate: 0 -0.6em;
+                @include sp {
+                    flex-direction: column;
+                    font-size: FZ(40);
+                    grid-column-start: 2;
+                    align-items: center;
+                    translate: 0 -2vw;
+                }
                 em {
                     font-weight: 200;
                     font-size: 7.5em;
                     display: inline-block;
                     translate: 0 0.05em;
+                    @include sp {
+                        font-size: 4em;
+                        letter-spacing: 0.03em;
+                    }
                 }
             }
             p {
@@ -960,10 +1266,19 @@
                 letter-spacing: 0.08em;
                 margin-top: 2em;
                 text-align: justify;
+                @include sp {
+                    grid-column: span 2;
+                    margin-top: 1vw;
+                    font-size: FZ(14);
+                    line-height: 1.6em;
+                }
             }
             .itemPageLink {
                 margin-top: 1em;
                 align-self: flex-start;
+                @include sp {
+                    grid-column: span 2;
+                }
             }
         }
     }
@@ -978,6 +1293,9 @@
     padding: 8em 2vw 4em;
     translate: 0 calc(-100vw * tan(5deg));
     margin-bottom: calc(-100vw * tan(5deg));
+    @include sp {
+        padding: 10vw 4vw 0;
+    }
     &::before {
         content: "";
         position: absolute;
@@ -991,11 +1309,20 @@
         display: grid;
         align-self: center;
         grid-template-columns: repeat(2, 1fr);
+        @include sp {
+            grid-template-columns: unset;
+            grid-auto-flow: row;
+        }
         .innerBlock {
             position: relative;
             display: flex;
             flex-direction: column;
             font-size: inherit;
+            @include sp {
+                display: grid;
+                grid-template-columns: 65% 1fr;
+                padding-bottom: 6vw;
+            }
             &::before {
                 content: "";
                 position: absolute;
@@ -1006,18 +1333,37 @@
                 background: url("../images/image-mens-job-offer.webp") no-repeat
                     center top / contain;
                 aspect-ratio: 640/1257;
+                @include sp {
+                    top: unset;
+                    translate: unset;
+                    bottom: 0;
+                    left: unset;
+                    right: -6vw;
+                    z-index: -1;
+                    width: 42vw;
+                }
             }
             .sidebarH2 {
                 font-size: FZ(20);
                 @include Oswald;
                 align-self: flex-end;
                 letter-spacing: 0.25em;
+                @include sp {
+                    justify-self: end;
+                    font-size: FZ(16);
+                }
             }
             h2 {
                 font-size: FZ(64);
                 letter-spacing: 0.1em;
                 align-self: flex-end;
                 margin-top: 0.2em;
+                @include sp {
+                    font-size: FZ(36);
+                    grid-column-start: 1;
+                    justify-self: end;
+                    margin-top: 0;
+                }
             }
             p {
                 font-size: FZ(16);
@@ -1026,10 +1372,21 @@
                 letter-spacing: 0.08em;
                 margin-top: 2em;
                 text-align: justify;
+                @include sp {
+                    font-size: FZ(14);
+                    grid-column-start: 1;
+                    margin-top: 2vw;
+                    line-height: 1.6em;
+                }
             }
             .itemPageLink {
                 margin-top: 2em;
                 align-self: flex-end;
+                @include sp {
+                    grid-column: span 2;
+                    align-self: unset;
+                    margin-top: 4vw;
+                }
             }
         }
     }

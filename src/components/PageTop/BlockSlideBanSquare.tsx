@@ -38,6 +38,15 @@ const BlockSlideBanSquare = () => {
               gap: '3rem',
               speed: 800,
               padding: '30%',
+              breakpoints: {
+                768: {
+                  padding: '10%',
+                  perPage: 1,
+                  speed: 800,
+                  gap: '4vw',
+                  focus: 0,
+                },
+              },
             }}
             aria-label="バナー"
           >

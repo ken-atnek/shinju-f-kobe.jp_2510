@@ -11,15 +11,29 @@
 .pearlLineTopRight {
     font-size: inherit;
     .bgPearl {
+        --size: 54px;
         position: absolute;
         top: 0;
-        translate: 0 -27px;
+        translate: 0 calc((var(--size) / 2) * -1);
         width: calc(100vw + 100vw * tan(15deg));
-        height: 54px;
+        height: var(--size);
         background-image: url("../../images/pearl01.webp");
         background-repeat: repeat-x;
-        background-size: 54px auto;
+        background-size: var(--size) auto;
         background-position: center bottom;
+        @include sp {
+            --size: 30px;
+        }
+    }
+    &.tpoPage {
+        @include sp {
+            display: none;
+        }
+        .bgPearl {
+            left: -27px;
+            transform-origin: left center;
+            rotate: -15deg;
+        }
     }
     &.left {
         .bgPearl {
@@ -40,6 +54,9 @@
             right: -40px;
             transform-origin: right center;
             rotate: 5deg;
+            @include sp {
+                --size: 24px;
+            }
         }
     }
     &.center {

@@ -52,19 +52,19 @@ export default function PageEntrance() {
       <section className={styles.containerHead}>
         <div className={clsx(styles.objectCirclePearl, styles.potionLeft)}>
           <PearlArc
-            count={21}
-            radius={350}
-            startAngle={90}
-            endAngle={270}
-            size={isMobile ? 32 : 54}
+            count={isMobile ? 17 : 21}
+            radius={isMobile ? 180 : 350}
+            startAngle={isMobile ? 90 : 90}
+            endAngle={isMobile ? 270 : 270}
+            size={isMobile ? 36 : 54}
           />
         </div>
         <div className={clsx(styles.objectCirclePearl, styles.potionRight)}>
           <PearlArc
-            count={21}
-            radius={400}
-            startAngle={-90}
-            endAngle={90}
+            count={isMobile ? 18 : 21}
+            radius={isMobile ? 180 : 400}
+            startAngle={isMobile ? -90 : -90}
+            endAngle={isMobile ? 90 : 90}
             size={isMobile ? 32 : 63}
           />
         </div>

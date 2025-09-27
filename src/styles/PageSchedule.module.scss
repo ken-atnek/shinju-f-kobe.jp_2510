@@ -1,0 +1,97 @@
+/* =================================
+ * 	在籍一覧
+ * ------------------------------ */
+@use "variable" as *;
+@use "svg" as *;
+@use "mixin" as *;
+/* stylelint-disable no-descending-specificity */
+/* stylelint-disable keyframes-name-pattern */
+/* stylelint-disable custom-property-pattern */
+// このファイル全体のルールを無効にする
+
+/* =================================
+ *ページ全体
+ * ------------------------------ */
+.containerDetails {
+    @include subPageContainer;
+}
+
+/* =================================
+ * スケジュール一覧
+ * ------------------------------ */
+.scheduleHead {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3em;
+    max-width: $articleMaxWidth;
+    align-self: center;
+    .scheduleNav {
+        font-size: inherit;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 0 0.5em;
+        button {
+            position: relative;
+            background-color: $dark-pink;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 3em 0 1em;
+            &::before {
+                content: "";
+                position: absolute;
+                top: 2rem;
+                left: 50%;
+                translate: -50%;
+                width: 2rem;
+                background: url("../images/pearl02.webp") no-repeat center
+                    center / contain;
+                aspect-ratio: 1;
+                filter: drop-shadow(2px 2px 2px rgba(#000, 0.25));
+            }
+            .day {
+                font-size: FZ(36);
+                font-weight: 300;
+            }
+            .week {
+                font-size: FZ(16);
+                font-weight: 500;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                &::before {
+                    content: "[";
+                    margin-right: 0.1em;
+                }
+                &::after {
+                    margin-left: 0.1em;
+                    content: "]";
+                }
+            }
+            &.isActive {
+                background-color: $dark-purple;
+            }
+        }
+    }
+}
+.listSchedule {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    font-size: inherit;
+    margin-top: 3em;
+    gap: 3em 1em;
+    max-width: $articleMaxWidth;
+    align-self: center;
+    .innerSchedule {
+        position: relative;
+        width: 100%;
+        font-size: inherit;
+    }
+}
+.noCast {
+    text-align: center;
+    font-size: FZ(18);
+    padding-top: 3em;
+}

@@ -6,7 +6,6 @@
  * ======================================= */
 
 import type { Metadata } from 'next';
-
 import { isRealProduction } from '@/lib/env';
 import ContainerMovie from '@/components/PageTop/ContainerMovie';
 import ContainerShopInfo from '@/components/PageTop/ContainerShopInfo';
@@ -34,7 +33,7 @@ export default function PageTop() {
     <main>
       <ContainerMovie />
       <ContainerShopInfo />
-      <PearlLineTopRight zIndex={2} positionClass="left" />
+      <PearlLineTopRight zIndex={2} positionClass="tpoPage" />
       <ContainerPickUp />
       <ContainerSlideBan />
       <ContainerRanking />

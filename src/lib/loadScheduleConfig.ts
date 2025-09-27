@@ -4,16 +4,13 @@ export type ScheduleConfig = {
 };
 
 /**
- * 指定パスの schedule-config.json を取得し、設定を返す
- * @param path 例: "hot", "villa"
+ * schedule-config.json を取得し、設定を返す
  * @returns ScheduleConfig オブジェクト
  */
-export const loadScheduleConfig = async (
-  path: string
-): Promise<ScheduleConfig> => {
-  const res = await fetch(`/data/${path}/schedule/schedule-config.json`);
+export const loadScheduleConfig = async (): Promise<ScheduleConfig> => {
+  const res = await fetch('/data/kobe/schedule/schedule-config.json');
   if (!res.ok) {
-    throw new Error(`Failed to load schedule config for path: ${path}`);
+    throw new Error('Failed to load schedule config');
   }
   return await res.json();
 };

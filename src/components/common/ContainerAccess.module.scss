@@ -14,6 +14,9 @@
     background-color: $base-purple;
     &::before {
         @include pearl-line(54px, bottom);
+        @include sp {
+            @include pearl-line(24px, bottom);
+        }
     }
     .boxMap {
         position: relative;
@@ -23,6 +26,9 @@
             width: 100%;
             position: relative;
             height: auto;
+            @include sp {
+                aspect-ratio: 1.5;
+            }
         }
         &::after {
             content: "access";
@@ -36,6 +42,9 @@
             text-transform: uppercase;
             color: $base-pink;
             letter-spacing: 0.12em;
+            @include sp {
+                font-size: FZ(100);
+            }
         }
     }
     article {
@@ -43,9 +52,15 @@
         flex-direction: column;
         align-items: center;
         padding: 9em 0 5em;
+        @include sp {
+            padding: 10vw 0 10vw;
+        }
         address {
             font-size: FZ(20);
             letter-spacing: 0.17em;
+            @include sp {
+                font-size: FZ(16);
+            }
         }
         .linkMap {
             background-color: $base-white;
@@ -60,6 +75,12 @@
             border-radius: 5px;
             letter-spacing: 0.15em;
             margin-top: 2em;
+            @include sp {
+                margin-top: 4vw;
+                width: unset;
+                padding: 1.5vw 6vw;
+                height: unset;
+            }
         }
     }
 }

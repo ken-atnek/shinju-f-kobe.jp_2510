@@ -16,6 +16,9 @@
     top: 2em;
     width: 100%;
     padding-inline: 4vw;
+    @include sp {
+        display: contents;
+    }
     section {
         display: flex;
         width: 100%;
@@ -30,9 +33,19 @@
             border-radius: 100vmax;
             padding-inline: 2em;
             gap: 0 2em;
+            @include sp {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                translate: 100vw;
+            }
             h1 {
                 font-size: FZ(32);
                 letter-spacing: 0.17em;
+                a {
+                    font-size: inherit;
+                }
             }
             nav {
                 position: relative;
@@ -58,6 +71,59 @@
             width: 7rem;
             aspect-ratio: 1;
             border-radius: 50%;
+        }
+    }
+}
+
+/* =================================
+ * ハンバーガーボタン
+ * ------------------------------ */
+.hamburgerButton {
+    display: none;
+    @include sp {
+        display: block;
+        position: fixed;
+        right: 2vw;
+        top: 4vw;
+        width: 13vw;
+        aspect-ratio: 1;
+        z-index: 100;
+        cursor: pointer;
+        background-color: $base-white;
+        border-radius: 50%;
+        span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 40%;
+            height: 1px;
+            background-color: $base-purple;
+            transition: 0.5s ease-out;
+            &:nth-of-type(1) {
+                transform: translate(-50%, calc(-50% - 1.5vw));
+            }
+            &:nth-of-type(2) {
+                transform: translate(-50%, -50%);
+            }
+            &:nth-of-type(3) {
+                transform: translate(-50%, calc(-50% + 1.5vw));
+            }
+        }
+        &.isOpen,
+        &[data-open="true"] {
+            span {
+                transition: 0.3s ease-out;
+                &:nth-of-type(1) {
+                    transform: translate(-50%, -50%) rotate(135deg);
+                }
+                &:nth-of-type(2) {
+                    transform: translate(-50%, -50%);
+                    opacity: 0;
+                }
+                &:nth-of-type(3) {
+                    transform: translate(-50%, -50%) rotate(-135deg);
+                }
+            }
         }
     }
 }

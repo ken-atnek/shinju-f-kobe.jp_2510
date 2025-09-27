@@ -1,5 +1,5 @@
 /* =======================================
- * TOPページ ランキング
+ * TOPページ 在籍リスト
  * URL:src/components/PageCast/CastList.tsx
  * Referenced in: : src/app/hot/cast/page.tsx
  * Created: 2025-09-26
@@ -19,13 +19,7 @@ const CastList = () => {
     fetch(DATA_URL)
       .then((res) => res.json())
       .then((data: CastDetail[]) => {
-        // rankingLabel01の昇順でソート
-        const sorted = [...data].sort(
-          (a, b) =>
-            (a.rankings?.rankingLabel01 ?? 999) -
-            (b.rankings?.rankingLabel01 ?? 999)
-        );
-        setCastList(sorted);
+        setCastList(data);
       });
   }, []);
 

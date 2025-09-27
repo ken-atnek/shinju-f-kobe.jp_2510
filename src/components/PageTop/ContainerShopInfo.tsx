@@ -14,11 +14,17 @@ const ContainerShopInfo = () => {
   return (
     <section className={styles.containerShopInfo}>
       <article className={styles.blockInfo}>
-        <div className={styles.name}>
-          <span>真</span>
-          <span>珠</span>
-          <span>夫</span>
-          <span>人</span>
+        <div className={styles.logo}>
+          <svg width="232" height="248" aria-label="真珠夫人">
+            <title>真珠夫人</title>
+            <use href="#svg_logoSquare" />
+          </svg>
+        </div>
+        <div className={styles.logoMobile}>
+          <svg width="268" height="85" aria-label="真珠夫人神戸本店">
+            <title>真珠夫人神戸本店</title>
+            <use href="#svg_logoMain" />
+          </svg>
         </div>
         <div className={styles.boxInfo}>
           <h3>営業時間</h3>

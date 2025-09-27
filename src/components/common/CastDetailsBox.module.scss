@@ -67,8 +67,8 @@
             right: -1rem;
             width: 2.5rem;
             aspect-ratio: 1;
-            background: url("../../images/pearl03.webp") no-repeat center center /
-                contain;
+            background: url("../../images/pearl03.webp") no-repeat center
+                center / contain;
             filter: drop-shadow(2px 2px 2px rgba(#000, 0.25));
         }
         span {
@@ -236,6 +236,17 @@
                 letter-spacing: 0.05em;
                 &::before {
                     content: "#";
+                }
+            }
+        }
+    }
+    &.notToday {
+        .wrapImage {
+            .todaySchedule {
+                span {
+                    &::before {
+                        display: none;
+                    }
                 }
             }
         }

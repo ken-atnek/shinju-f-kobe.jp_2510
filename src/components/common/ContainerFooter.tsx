@@ -27,11 +27,11 @@ const ContainerFooter = () => {
             三宮発、禁断の文学的官能を味わえるお店。
           </p>
           <div className={styles.blockInfo}>
-            <div className={styles.name}>
-              <span>真</span>
-              <span>珠</span>
-              <span>夫</span>
-              <span>人</span>
+            <div className={styles.logo}>
+              <svg width="232" height="248" aria-label="真珠夫人">
+                <title>真珠夫人</title>
+                <use href="#svg_logoSquare" />
+              </svg>
             </div>
             <div className={styles.boxInfo}>
               <h3>営業時間</h3>
@@ -47,6 +47,12 @@ const ContainerFooter = () => {
                 <span>（受付00時~）</span>
               </div>
               <address>{SHOP_INFO.address}</address>
+              <ExternalLink
+                href="https://maps.app.goo.gl/B3a8ovipnuvp12HJ9"
+                className={styles.linkMap}
+              >
+                google map
+              </ExternalLink>
             </div>
           </div>
         </article>

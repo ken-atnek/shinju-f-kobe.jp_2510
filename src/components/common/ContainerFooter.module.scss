@@ -31,6 +31,9 @@
         flex-direction: column;
         align-items: center;
         padding: 5em 2vw 3em;
+        @include sp {
+            padding: 6vw 4vw 12vw;
+        }
         article {
             display: flex;
             flex-direction: column;
@@ -41,6 +44,11 @@
                 letter-spacing: 0.18em;
                 line-height: 3em;
                 font-weight: 300;
+                @include sp {
+                    font-size: FZ(12);
+                    line-height: 1.8em;
+                    letter-spacing: 0.08em;
+                }
             }
             .blockInfo {
                 font-size: inherit;
@@ -49,12 +57,17 @@
                 align-items: center;
                 margin-top: 3em;
                 gap: 0 3em;
-                .name {
+                @include sp {
+                    display: contents;
+                }
+                .logo {
                     position: relative;
-                    display: grid;
                     font-size: inherit;
-                    grid-template-columns: repeat(2, 1fr);
-                    gap: 0.4em;
+                    width: 14.5em;
+                    @include sp {
+                        width: 50vw;
+                        margin-top: 8vw;
+                    }
                     &::before {
                         content: "";
                         position: absolute;
@@ -65,10 +78,9 @@
                         background: url("../../images/pearl02.webp") no-repeat
                             center center/contain;
                     }
-                    span {
-                        display: inline-block;
-                        font-weight: 300;
-                        font-size: FZ(128);
+                    svg {
+                        fill: $base-white;
+                        aspect-ratio: 232/248;
                     }
                 }
                 .boxInfo {
@@ -78,9 +90,19 @@
                     grid-template-columns: auto 1fr;
                     gap: 0.8em 1em;
                     align-items: center;
+                    @include sp {
+                        width: 100%;
+                        gap: 2vw 4vw;
+                        grid-template-columns: 35% 1fr;
+                        margin-top: 8vw;
+                    }
                     h3 {
                         font-size: FZ(20);
                         letter-spacing: 0.12em;
+                        @include sp {
+                            font-size: FZ(16);
+                            justify-self: end;
+                        }
                     }
                     .time {
                         font-size: inherit;
@@ -90,6 +112,9 @@
                             font-weight: 200;
                             font-size: FZ(32);
                             letter-spacing: 0.12em;
+                            @include sp {
+                                font-size: FZ(24);
+                            }
                             &:nth-of-type(2) {
                                 &::before {
                                     content: "~";
@@ -103,15 +128,25 @@
                         display: flex;
                         align-items: center;
                         gap: 0 0.5em;
+                        @include sp {
+                            flex-direction: column;
+                            align-items: flex-start;
+                        }
                         a {
                             @include Oswald;
                             font-weight: 200;
                             font-size: FZ(32);
                             letter-spacing: 0.12em;
+                            @include sp {
+                                font-size: FZ(24);
+                            }
                         }
                         span {
                             font-size: FZ(20);
                             letter-spacing: 0.12em;
+                            @include sp {
+                                font-size: FZ(14);
+                            }
                         }
                     }
                     address {
@@ -119,6 +154,29 @@
                         font-size: FZ(20);
                         letter-spacing: 0.12em;
                         margin-top: 0.3em;
+                        @include sp {
+                            font-size: FZ(18);
+                            justify-self: center;
+                        }
+                    }
+                    .linkMap {
+                        display: none;
+                        @include sp {
+                            grid-column: span 2;
+                            background-color: $base-white;
+                            color: $dark-purple;
+                            justify-self: center;
+                            width: max-content;
+                            @include Oswald;
+                            font-size: FZ(16);
+                            font-weight: 300;
+                            text-transform: uppercase;
+                            @include flex-center;
+                            border-radius: 5px;
+                            letter-spacing: 0.15em;
+                            margin-top: 2vw;
+                            padding: 1.5vw 6vw;
+                        }
                     }
                 }
             }
@@ -141,6 +199,9 @@
         }
         &::before {
             @include pearl-line(54px, top);
+            @include sp {
+                @include pearl-line(24px, top);
+            }
         }
     }
 }

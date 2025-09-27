@@ -6,7 +6,7 @@
  * ======================================= */
 
 export const SHOP_INFO = {
-  tel: '078-XXX-XXXX',
+  tel: '078-332-5088',
   address: '兵庫県神戸市中央区北長狭通２丁目１−４',
   businessHours: {
     open: '8:00',

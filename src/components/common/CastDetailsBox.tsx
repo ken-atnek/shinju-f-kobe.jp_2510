@@ -1,4 +1,5 @@
 import styles from '@/components/common/CastDetailsBox.module.scss';
+import clsx from 'clsx';
 import Image from 'next/image';
 import { typeLabels } from '@/constants/castTypeLabels';
 import { badgeLabels } from '@/constants/castBadgeLabels';
@@ -7,10 +8,17 @@ import Link from 'next/link';
 
 type Props = {
   item: CastDetail;
+  variant?: 'default' | 'notToday';
 };
 
-const CastDetailsBox = ({ item }: Props) => (
-  <Link href="/" className={styles.boxCastDetails}>
+const CastDetailsBox = ({ item, variant = 'default' }: Props) => (
+  <Link
+    href="/"
+    className={clsx(
+      styles.boxCastDetails,
+      variant === 'notToday' && styles.notToday
+    )}
+  >
     {item.badges && item.badges.length > 0 && (
       <ul className={styles.wrapBadges}>
         {item.badges.map((badge, i) =>

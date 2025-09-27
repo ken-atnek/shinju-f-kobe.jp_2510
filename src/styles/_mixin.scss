@@ -27,10 +27,10 @@
     background-position: center #{$position};
     z-index: -1;
 }
+
 /* =================================
  * 	下層ページ
  * ------------------------------ */
-
 @mixin subPageH2 {
     display: flex;
     flex-direction: column;
