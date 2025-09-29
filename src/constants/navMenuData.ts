@@ -8,7 +8,7 @@ export const navMenu = [
   { id: 'navTop', href: '/', label: 'トップ', labelEn: 'top' },
   {
     id: 'navCastList',
-    href: '/cast/',
+    href: '/list/',
     label: '女の子一覧',
     labelEn: 'cast list',
   },

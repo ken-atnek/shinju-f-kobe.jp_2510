@@ -86,6 +86,7 @@ const ScheduleList = () => {
                 variant={
                   selectedDate !== schedules[0]?.date ? 'notToday' : undefined
                 }
+                typeParam="schedule"
               />
             </li>
           ))}

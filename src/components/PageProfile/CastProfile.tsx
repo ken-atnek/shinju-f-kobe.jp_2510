@@ -16,6 +16,9 @@ import { badgeLabels } from '@/constants/castBadgeLabels';
 import ExternalLink from '@/components/common/ExternalLink';
 import { convertRemToPx } from '@/lib/convertRemToPx';
 import Image from 'next/image';
+import Link from 'next/link';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/react-splide/css';
 import CastSchedule from '@/components/PageProfile/CastSchedule';
 
 const CastProfile = () => {
@@ -23,6 +26,36 @@ const CastProfile = () => {
   const castId = searchParams.get('id');
   const [cast, setCast] = useState<CastDetail | null>(null);
   const [error, setError] = useState(false);
+
+  // 前後のキャスト判定
+  const [prevCastId, setPrevCastId] = useState<string | null>(null);
+  const [nextCastId, setNextCastId] = useState<string | null>(null);
+  const queryParams = new URLSearchParams(window.location.search);
+  const type = queryParams.get('type'); // デフォルト値なし
+  const rankingType = queryParams.get('rankingType');
+  // 前後キャスト情報の取得
+  useEffect(() => {
+    try {
+      const castOrderStr = sessionStorage.getItem('castOrder_castlist');
+      if (!castOrderStr) return;
+
+      type CastOrderItem = { id: string; name: string };
+      const castOrder = JSON.parse(castOrderStr) as CastOrderItem[];
+      const currentId = castId;
+      if (!currentId) return;
+
+      const currentIndex = castOrder.findIndex((c) => c.id === currentId);
+      if (currentIndex === -1) return;
+
+      const prev = castOrder[currentIndex - 1];
+      const next = castOrder[currentIndex + 1];
+
+      setPrevCastId(prev?.id || null);
+      setNextCastId(next?.id || null);
+    } catch {
+      // エラー時は何もしない
+    }
+  }, [castId]);
 
   useEffect(() => {
     if (cast) {
@@ -109,9 +142,46 @@ const CastProfile = () => {
   };
 
   const rankingValue = getFirstRanking(cast.rankings);
+
+  // 5枚目以降の画像を取得
+  const slideImages = cast.profileImages
+    ? [
+        ...cast.profileImages.slice(4),
+        ...Array(Math.max(0, 3 - cast.profileImages.slice(4).length)).fill(
+          '/images/kobe/no-image.webp'
+        ),
+      ]
+    : Array(5).fill('/images/kobe/no-image.webp');
+
   return (
     <>
-      <section className={styles.containerHeadNav}>123</section>
+      <section className={styles.containerHeadNav}>
+        <nav className={styles.blockCastNav}>
+          {prevCastId ? (
+            <Link
+              href={`/profile/?id=${prevCastId}${type ? `&type=${type}` : ''}${type === 'ranking' && rankingType ? `&rankingType=${rankingType}` : ''}`}
+              className={styles.linkPrevCastDetail}
+            >
+              <span>PREV</span>
+            </Link>
+          ) : (
+            <div></div>
+          )}
+          <Link href={`/cast/`} className={styles.linkCastList}>
+            <span>LIST</span>
+          </Link>
+          {nextCastId ? (
+            <Link
+              href={`/profile/?id=${nextCastId}${type ? `&type=${type}` : ''}${type === 'ranking' && rankingType ? `&rankingType=${rankingType}` : ''}`}
+              className={styles.linkNextCastDetail}
+            >
+              <span>NEXT</span>
+            </Link>
+          ) : (
+            <div></div>
+          )}
+        </nav>
+      </section>
       <section className={styles.containerProfileTop}>
         <article>
           <div className={styles.itemImage}>
@@ -191,10 +261,40 @@ const CastProfile = () => {
           </div>
         </article>
       </section>
+      {slideImages.length > 0 && (
+        <section className={styles.containerSlideImage}>
+          <Splide
+            options={{
+              type: 'loop',
+              perPage: 1,
+              gap: '0',
+              interval: 2000,
+              speed: 800,
+              padding: '0',
+              autoplay: true,
+              pauseOnHover: false,
+            }}
+            aria-label="キャスト追加画像"
+          >
+            {slideImages.map((src, idx) => (
+              <SplideSlide key={idx}>
+                <Image
+                  src={src}
+                  alt={`${cast.castName}の画像${idx + 5}`}
+                  width={580}
+                  height={773}
+                />
+              </SplideSlide>
+            ))}
+          </Splide>
+        </section>
+      )}
       {cast && <CastSchedule castId={cast.castId} />}
       <section className={styles.containerBottom}>
         <article>
+          {/* Q & A */}
           <div className={styles.boxQuestions}>
+            <span className={styles.sidebarH2}>Q&A</span>
             <ul>
               {cast.questions?.map((item, index) => (
                 <li key={index}>
@@ -228,10 +328,11 @@ const CastProfile = () => {
               height={773}
             />
           </div>
+          {/* 女の子コメント */}
           <div className={styles.boxCastMessage}>
+            <span className={styles.sidebarH2}>cast message</span>
+            <h2 className={styles.itemH2}>メッセージ</h2>
             <div className={styles.boxInner}>
-              <span className={styles.sidebarH2}>cast message</span>
-              <h2 className={styles.itemH2}>メッセージ</h2>
               <div className={styles.wrapCastMessage}>
                 {cast.castMessage && (
                   <div
@@ -244,10 +345,11 @@ const CastProfile = () => {
               </div>
             </div>
           </div>
+          {/* お店のコメント */}
           <div className={styles.boxShopComment}>
+            <span className={styles.sidebarH2}>SHOP COMMENT</span>
+            <h2 className={styles.itemH2}>ショップコメント</h2>
             <div className={styles.boxInner}>
-              <span className={styles.sidebarH2}>SHOP COMMENT</span>
-              <h2 className={styles.itemH2}>ショップコメント</h2>
               <div className={styles.wrapShopComment}>
                 {cast.shopComment && (
                   <div
@@ -273,6 +375,33 @@ const CastProfile = () => {
             />
           </div>
         </article>
+      </section>
+      <section className={styles.containerBottomNav}>
+        <nav className={styles.blockCastNav}>
+          {prevCastId ? (
+            <Link
+              href={`/profile/?id=${prevCastId}${type ? `&type=${type}` : ''}${type === 'ranking' && rankingType ? `&rankingType=${rankingType}` : ''}`}
+              className={styles.linkPrevCastDetail}
+            >
+              <span>PREV</span>
+            </Link>
+          ) : (
+            <div></div>
+          )}
+          <Link href={`/cast/`} className={styles.linkCastList}>
+            <span>LIST</span>
+          </Link>
+          {nextCastId ? (
+            <Link
+              href={`/profile/?id=${nextCastId}${type ? `&type=${type}` : ''}${type === 'ranking' && rankingType ? `&rankingType=${rankingType}` : ''}`}
+              className={styles.linkNextCastDetail}
+            >
+              <span>NEXT</span>
+            </Link>
+          ) : (
+            <div></div>
+          )}
+        </nav>
       </section>
     </>
   );

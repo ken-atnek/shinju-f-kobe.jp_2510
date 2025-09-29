@@ -113,7 +113,7 @@ const ContainerSchedule = () => {
               className={styles.innerSchedule}
               style={{ transitionDelay: `${i * 0.2}s` }}
             >
-              <CastDetailsBox item={item} />
+              <CastDetailsBox item={item} typeParam="topschedule" />
             </li>
           ))}
         </ul>

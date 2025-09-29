@@ -59,7 +59,7 @@ const ContainerRanking = () => {
         >
           {rankingList.map((item) => (
             <li key={item.castId} className={styles.innerRanking}>
-              <CastDetailsBox item={item} />
+              <CastDetailsBox item={item} typeParam="ranking" />
             </li>
           ))}
         </ul>

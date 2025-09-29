@@ -23,11 +23,20 @@ const CastList = () => {
       });
   }, []);
 
+  useEffect(() => {
+    if (castList.length > 0) {
+      const castOrder = castList.map((c) => ({
+        id: c.castId,
+        name: c.castName,
+      }));
+      sessionStorage.setItem('castOrder_castlist', JSON.stringify(castOrder));
+    }
+  }, [castList]);
   return (
     <ul className={styles.listCast}>
       {castList.map((item) => (
         <li key={item.castId} className={styles.innerCastList}>
-          <CastDetailsBox item={item} />
+          <CastDetailsBox item={item} typeParam="castlist" />
         </li>
       ))}
     </ul>

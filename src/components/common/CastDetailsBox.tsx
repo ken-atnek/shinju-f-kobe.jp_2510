@@ -9,11 +9,16 @@ import Link from 'next/link';
 type Props = {
   item: CastDetail;
   variant?: 'default' | 'notToday';
+  typeParam?: string;
 };
 
-const CastDetailsBox = ({ item, variant = 'default' }: Props) => (
+const CastDetailsBox = ({ item, variant = 'default', typeParam }: Props) => (
   <Link
-    href={`/profile/?id=${item.castId}`}
+    href={
+      typeParam
+        ? `/profile/?id=${item.castId}&type=${typeParam}`
+        : `/profile/?id=${item.castId}`
+    }
     className={clsx(
       styles.boxCastDetails,
       variant === 'notToday' && styles.notToday
