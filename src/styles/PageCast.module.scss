@@ -1,0 +1,35 @@
+/* =================================
+ * 	在籍一覧
+ * ------------------------------ */
+@use "variable" as *;
+@use "svg" as *;
+@use "mixin" as *;
+/* stylelint-disable no-descending-specificity */
+/* stylelint-disable keyframes-name-pattern */
+/* stylelint-disable custom-property-pattern */
+// このファイル全体のルールを無効にする
+
+/* =================================
+ *ページ全体
+ * ------------------------------ */
+.containerDetails {
+    @include subPageContainer;
+}
+
+/* =================================
+ * 在籍一覧
+ * ------------------------------ */
+.listCast {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    font-size: inherit;
+    margin-top: 3em;
+    gap: 3em 1em;
+    max-width: $articleMaxWidth;
+    .innerCastList {
+        position: relative;
+        width: 100%;
+        font-size: inherit;
+    }
+}

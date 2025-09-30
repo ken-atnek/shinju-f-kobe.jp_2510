@@ -1,0 +1,43 @@
+[
+  {
+    "banId": "001",
+    "status": 1,
+    "banTitle": "タイトルバー",
+    "banImage": "/images/kobe/ban/179.jpg"
+  },
+  {
+    "banId": "002",
+    "banTitle": "入店特典",
+    "banImage": "/images/kobe/ban/180.jpg",
+    "status": 3,
+    "linkTarget": true,
+    "url": "https://kyusyu-okinawa.qzin.jp/celebhot/"
+  },
+  {
+    "banId": "003",
+    "banTitle": "求人バナー",
+    "banImage": "/images/kobe/ban/184.jpg",
+    "status": 3,
+    "linkTarget": true,
+    "url": "https://kyusyu-okinawa.qzin.jp/celebhot/"
+  },
+  {
+    "banId": "004",
+    "banTitle": "女の子大募集１",
+    "banImage": "/images/kobe/ban/185.jpg",
+    "status": 4,
+    "popUpImage": "/images/kobe/ban/ban02.webp"
+  },
+  {
+    "banId": "005",
+    "status": 1,
+    "banTitle": "女の子大募集１",
+    "banImage": "/images/kobe/ban/186.jpg"
+  },
+  {
+    "banId": "006",
+    "status": 1,
+    "banTitle": "女の子大募集１",
+    "banImage": "/images/kobe/ban/188.jpg"
+  }
+]

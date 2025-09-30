@@ -1,0 +1,254 @@
+/* =================================
+ * 	キャスト details
+ * ------------------------------ */
+@use "variable" as *;
+@use "svg" as *;
+@use "mixin" as *;
+/* stylelint-disable no-descending-specificity */
+/* stylelint-disable keyframes-name-pattern */
+/* stylelint-disable custom-property-pattern */
+// このファイル全体のルールを無効にする
+.boxCastDetails {
+    position: relative;
+    font-size: inherit;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: $base-white;
+    color: $dark-purple;
+    padding: 1em;
+    .wrapBadges {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        font-size: inherit;
+        --badge-color: #000;
+        gap: 0 6px;
+        width: 100%;
+        z-index: 1;
+        li {
+            background-color: var(--badge-color);
+            color: $base-white;
+            width: 8rem;
+            @include flex-center;
+            @include Oswald;
+            font-size: FZ(16);
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            &.new {
+                --badge-color: #148e5c;
+                height: 5rem;
+            }
+            &.trial {
+                --badge-color: #14668e;
+                height: 5rem;
+            }
+            &.up {
+                --badge-color: #910a67;
+            }
+        }
+    }
+    .itemRanking {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        background-color: #030637;
+        color: $base-white;
+        width: 8rem;
+        aspect-ratio: 1;
+        @include flex-center;
+        font-size: inherit;
+        &::before {
+            content: "";
+            position: absolute;
+            top: -1rem;
+            right: -1rem;
+            width: 2.5rem;
+            aspect-ratio: 1;
+            background: url("../../images/pearl03.webp") no-repeat center
+                center / contain;
+            filter: drop-shadow(2px 2px 2px rgba(#000, 0.25));
+        }
+        span {
+            @include Oswald;
+            font-size: FZ(40);
+            font-weight: 300;
+            display: flex;
+            align-items: center;
+            &::before {
+                letter-spacing: 0.07em;
+                display: inline-block;
+                content: "NO.";
+                font-size: 0.35em;
+                translate: 0 0.5em;
+            }
+        }
+    }
+    .wrapImage {
+        position: relative;
+        width: 100%;
+        font-size: inherit;
+        img {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+        }
+        .todaySchedule {
+            position: absolute;
+            left: 50%;
+            translate: -50%;
+            bottom: 1.6em;
+            color: $base-white;
+            background-color: rgba($light-purple, 0.9);
+            font-size: inherit;
+            height: 2.75em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 100vmax;
+            width: 100%;
+            max-width: 30rem;
+            span {
+                font-size: inherit;
+                display: flex;
+                align-items: center;
+                &::before {
+                    content: "today";
+                    @include Oswald;
+                    font-size: FZ(14);
+                    font-weight: 500;
+                    text-transform: uppercase;
+                    letter-spacing: 0.17em;
+                    margin-right: 0.8em;
+                }
+                time {
+                    font-size: FZ(20);
+                    @include Oswald;
+                    font-weight: 200;
+                    letter-spacing: 0.17em;
+                    display: flex;
+                    align-items: center;
+                    translate: 0 -0.08em;
+                    &:nth-of-type(2) {
+                        &::before {
+                            content: "-";
+                            margin-inline: 0.2em;
+                            display: inline-block;
+                            translate: 0 -0.1em;
+                        }
+                    }
+                }
+            }
+            p {
+                font-size: FZ(16);
+                letter-spacing: 0.12em;
+            }
+        }
+    }
+    .wrapProfile {
+        font-size: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1em;
+        @include sp {
+            min-width: unset;
+        }
+        .castNameEn {
+            @include Oswald;
+            font-size: FZ(16);
+            font-weight: 200;
+            color: $dark-pink;
+            letter-spacing: 0.17em;
+        }
+        .castName {
+            font-size: FZ(52);
+            font-weight: 300;
+            margin-top: 0.1em;
+        }
+        .age {
+            @include Oswald;
+            font-size: FZ(24);
+            font-weight: 200;
+            letter-spacing: 0.15em;
+            margin-top: 0.8em;
+            &::before {
+                content: "Age.";
+            }
+        }
+        .castSize {
+            font-size: inherit;
+            display: flex;
+            align-items: center;
+            margin-top: 0.5em;
+            span {
+                @include Oswald;
+                font-size: FZ(24);
+                font-weight: 400;
+                letter-spacing: 0.2em;
+                &::before {
+                    text-transform: uppercase;
+                }
+                &:not(:last-of-type) {
+                    &::after {
+                        content: "/";
+                        margin-inline: 0.2em;
+                    }
+                }
+            }
+            .bust {
+                i {
+                    text-transform: uppercase;
+                    &::before,
+                    &::after {
+                        display: inline-block;
+                        translate: 0 -0.05em;
+                    }
+                    &::before {
+                        content: "[";
+                    }
+                    &::after {
+                        content: "]";
+                    }
+                }
+            }
+        }
+    }
+    .listType {
+        display: flex;
+        font-size: inherit;
+        justify-content: center;
+        gap: 0.3em;
+        flex: 1;
+        align-items: flex-end;
+        margin-top: 3em;
+        li {
+            background-color: $light-purple;
+            color: $base-white;
+            font-size: inherit;
+            border-radius: 100vmax;
+            padding: 0.5em 1em;
+            span {
+                font-size: FZ(16);
+                font-weight: 300;
+                letter-spacing: 0.05em;
+                &::before {
+                    content: "#";
+                }
+            }
+        }
+    }
+    &.notToday {
+        .wrapImage {
+            .todaySchedule {
+                span {
+                    &::before {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

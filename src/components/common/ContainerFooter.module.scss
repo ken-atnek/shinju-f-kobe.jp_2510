@@ -1,0 +1,207 @@
+/* =================================
+ * 	FOOTER
+ * ------------------------------ */
+@use "variable" as *;
+@use "svg" as *;
+@use "mixin" as *;
+/* stylelint-disable no-descending-specificity */
+/* stylelint-disable keyframes-name-pattern */
+/* stylelint-disable custom-property-pattern */
+// このファイル全体のルールを無効にする
+.containerFooter {
+    display: flex;
+    flex-direction: column;
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+    }
+    &::before {
+        background: url("../../images/main-bg.webp") no-repeat center center /
+            cover;
+    }
+    &::after {
+        background-color: $light-purple;
+        mix-blend-mode: multiply;
+    }
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 5em 2vw 3em;
+        @include sp {
+            padding: 6vw 4vw 12vw;
+        }
+        article {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            p {
+                text-align: center;
+                font-size: FZ(16);
+                letter-spacing: 0.18em;
+                line-height: 3em;
+                font-weight: 300;
+                @include sp {
+                    font-size: FZ(12);
+                    line-height: 1.8em;
+                    letter-spacing: 0.08em;
+                }
+            }
+            .blockInfo {
+                font-size: inherit;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 3em;
+                gap: 0 3em;
+                @include sp {
+                    display: contents;
+                }
+                .logo {
+                    position: relative;
+                    font-size: inherit;
+                    width: 14.5em;
+                    @include sp {
+                        width: 50vw;
+                        margin-top: 8vw;
+                    }
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        inset: 0;
+                        margin: auto;
+                        width: 8rem;
+                        aspect-ratio: 1;
+                        background: url("../../images/pearl02.webp") no-repeat
+                            center center/contain;
+                    }
+                    svg {
+                        fill: $base-white;
+                        aspect-ratio: 232/248;
+                    }
+                }
+                .boxInfo {
+                    position: relative;
+                    font-size: inherit;
+                    display: grid;
+                    grid-template-columns: auto 1fr;
+                    gap: 0.8em 1em;
+                    align-items: center;
+                    @include sp {
+                        width: 100%;
+                        gap: 2vw 4vw;
+                        grid-template-columns: 35% 1fr;
+                        margin-top: 8vw;
+                    }
+                    h3 {
+                        font-size: FZ(20);
+                        letter-spacing: 0.12em;
+                        @include sp {
+                            font-size: FZ(16);
+                            justify-self: end;
+                        }
+                    }
+                    .time {
+                        font-size: inherit;
+                        display: flex;
+                        span {
+                            @include Oswald;
+                            font-weight: 200;
+                            font-size: FZ(32);
+                            letter-spacing: 0.12em;
+                            @include sp {
+                                font-size: FZ(24);
+                            }
+                            &:nth-of-type(2) {
+                                &::before {
+                                    content: "~";
+                                    margin-inline: 0.3em;
+                                }
+                            }
+                        }
+                    }
+                    .tel {
+                        font-size: inherit;
+                        display: flex;
+                        align-items: center;
+                        gap: 0 0.5em;
+                        @include sp {
+                            flex-direction: column;
+                            align-items: flex-start;
+                        }
+                        a {
+                            @include Oswald;
+                            font-weight: 200;
+                            font-size: FZ(32);
+                            letter-spacing: 0.12em;
+                            @include sp {
+                                font-size: FZ(24);
+                            }
+                        }
+                        span {
+                            font-size: FZ(20);
+                            letter-spacing: 0.12em;
+                            @include sp {
+                                font-size: FZ(14);
+                            }
+                        }
+                    }
+                    address {
+                        grid-column: span 2;
+                        font-size: FZ(20);
+                        letter-spacing: 0.12em;
+                        margin-top: 0.3em;
+                        @include sp {
+                            font-size: FZ(18);
+                            justify-self: center;
+                        }
+                    }
+                    .linkMap {
+                        display: none;
+                        @include sp {
+                            grid-column: span 2;
+                            background-color: $base-white;
+                            color: $dark-purple;
+                            justify-self: center;
+                            width: max-content;
+                            @include Oswald;
+                            font-size: FZ(16);
+                            font-weight: 300;
+                            text-transform: uppercase;
+                            @include flex-center;
+                            border-radius: 5px;
+                            letter-spacing: 0.15em;
+                            margin-top: 2vw;
+                            padding: 1.5vw 6vw;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .copyright {
+        position: relative;
+        text-align: center;
+        font-size: FZ(20);
+        font-weight: 300;
+        letter-spacing: 0.27em;
+        padding-block: 0.5em;
+        z-index: 2;
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-color: $base-purple;
+            z-index: -1;
+        }
+        &::before {
+            @include pearl-line(54px, top);
+            @include sp {
+                @include pearl-line(24px, top);
+            }
+        }
+    }
+}

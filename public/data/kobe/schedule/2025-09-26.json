@@ -1,0 +1,93 @@
+{
+  "date": "2025-09-26",
+  "casts": [
+    {
+      "castId": "418",
+      "castName": "佐倉 かのん",
+      "castNameEn": "kanon sakura",
+      "castImage": "/cast/kobe/418/image01.webp",
+      "age": 43,
+      "tall": 164,
+      "bust": 84,
+      "cup": "c",
+      "west": 59,
+      "hip": 88,
+      "catchCopy": "本物の「大人の魅力」♪",
+      "rankings": {
+        "rankingLabel01": 3
+      },
+      "schedule": {
+        "startTime": "",
+        "endTime": "",
+        "scheduleStatus": "TEL確認"
+      },
+      "badges": ["trial", "up"],
+      "type": [1, 4, 9, 10]
+    },
+    {
+      "castId": "16",
+      "castName": "道端 ミライ",
+      "castNameEn": "mirai michiba",
+      "castImage": "/cast/kobe/16/image01.webp",
+      "age": 35,
+      "tall": 155,
+      "bust": 84,
+      "cup": "b",
+      "west": 58,
+      "hip": 83,
+      "catchCopy": "吸い込まれそうな大きな瞳♡",
+      "rankings": {
+        "rankingLabel01": 1
+      },
+      "schedule": {
+        "startTime": "12:00",
+        "endTime": "19:00",
+        "scheduleStatus": ""
+      },
+      "badges": ["trial"],
+      "type": [10, 12, 13, 14, 15, 16, 17, 18]
+    },
+    {
+      "castId": "220",
+      "castName": "南 えり",
+      "castNameEn": "eri minami",
+      "castImage": "/cast/kobe/220/image01.webp",
+      "age": 41,
+      "tall": 155,
+      "bust": 82,
+      "cup": "b",
+      "west": 60,
+      "hip": 84,
+      "schedule": {
+        "startTime": "16:00",
+        "endTime": "23:00",
+        "scheduleStatus": ""
+      },
+      "catchCopy": "吸い込まれそうな大きな瞳♡",
+      "type": [5, 8, 10, 12, 13, 14, 15]
+    },
+    {
+      "castId": "426",
+      "castName": "彩咲 みわこ",
+      "castNameEn": "miwako aisaki",
+      "castImage": "/cast/kobe/426/image01.webp",
+      "age": 38,
+      "tall": 154,
+      "bust": 88,
+      "cup": "d",
+      "west": 58,
+      "hip": 85,
+      "catchCopy": "唯一無二の存在♪",
+      "rankings": {
+        "rankingLabel01": 2
+      },
+      "schedule": {
+        "startTime": "8:00",
+        "endTime": "15:00",
+        "scheduleStatus": ""
+      },
+      "badges": ["new"],
+      "type": [1, 3, 5, 8, 10, 12, 13, 14, 15]
+    }
+  ]
+}

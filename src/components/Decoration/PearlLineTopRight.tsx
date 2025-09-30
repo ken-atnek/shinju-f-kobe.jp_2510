@@ -6,13 +6,21 @@
  * ======================================= */
 
 import styles from '@/components/Decoration/PearlLineTopRight.module.scss';
+import clsx from 'clsx';
 type Props = {
   zIndex?: number;
+  positionClass?: string;
 };
 
-const PearlLineTopRight = ({ zIndex = 1 }: Props) => {
+const PearlLineTopRight = ({ zIndex = 1, positionClass }: Props) => {
   return (
-    <section className={styles.pearlLineTopRight} style={{ zIndex }}>
+    <section
+      className={clsx(
+        styles.pearlLineTopRight,
+        positionClass && styles[positionClass]
+      )}
+      style={{ zIndex }}
+    >
       <div className={styles.bgPearl}></div>
     </section>
   );

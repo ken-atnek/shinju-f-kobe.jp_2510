@@ -25,35 +25,13 @@
             z-index: -1;
         }
         &::before {
-            content: "";
-            position: absolute;
-            bottom: -36px;
-            left: 0;
-            width: 100%;
-            height: 66px;
-            background-image: url("../images/pearl01.webp");
-            background-repeat: repeat-x;
-            background-size: 66px auto;
-            background-position: center bottom;
-            z-index: -1;
+            @include pearl-line(66px, bottom);
+            @include sp {
+                @include pearl-line(36px, bottom);
+            }
         }
-    }
-    .containerBgPearl {
-        z-index: 3;
-        font-size: inherit;
-        .bgPearl {
-            position: absolute;
-            top: 0;
-            left: -27px;
-            translate: 0 -27px;
-            width: calc(100vw + 100vw * tan(15deg));
-            height: 54px;
-            background-image: url("../images/pearl01.webp");
-            background-repeat: repeat-x;
-            background-size: 54px auto;
-            background-position: center bottom;
-            transform-origin: left center;
-            rotate: -15deg;
+        @include sp {
+            font-size: FZ(14);
         }
     }
     .containerHead {
@@ -61,6 +39,9 @@
         flex-direction: column;
         align-items: center;
         padding: 12em 0 20vw;
+        @include sp {
+            padding: 10vw 0 30vw;
+        }
         &::before {
             content: "";
             position: fixed;
@@ -86,27 +67,30 @@
             &.potionRight {
                 right: 90%;
                 bottom: 10vw;
+                @include sp {
+                    bottom: 40vw;
+                }
             }
             &.potionLeft {
                 left: 90%;
                 top: 3vw;
             }
         }
-        .name {
-            font-size: inherit;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5em 0;
-            span {
-                font-size: FZ(128);
-                font-weight: 300;
-                letter-spacing: 0.15em;
+        .sidebarLogo {
+            font-size: FZ(20);
+            font-weight: 300;
+            letter-spacing: 0.27em;
+            margin-bottom: 1em;
+            @include sp {
+                font-size: FZ(14);
             }
-            p {
-                font-size: FZ(20);
-                font-weight: 300;
-                letter-spacing: 0.27em;
+        }
+        .itemLogo {
+            font-size: inherit;
+            width: 70%;
+            max-width: 812px;
+            img {
+                width: 100%;
             }
         }
         button {
@@ -121,6 +105,9 @@
             margin-top: 5em;
             @include flex-center(column);
             @include move03;
+            @include sp {
+                width: 50vw;
+            }
             &::before {
                 content: "";
                 position: absolute;
@@ -131,6 +118,10 @@
                 top: -3rem;
                 background: url("../images/pearl02.webp") no-repeat center
                     center/contain;
+                @include sp {
+                    width: 14vw;
+                    top: -4vw;
+                }
             }
             @include hover {
                 background-color: $base-pink;
@@ -143,6 +134,9 @@
                 font-size: FZ(64);
                 letter-spacing: 0.1em;
                 padding-left: 0.1em;
+                @include sp {
+                    font-size: FZ(50);
+                }
             }
             p {
                 font-size: FZ(20);
@@ -169,6 +163,9 @@
             line-height: 2em;
             letter-spacing: 0.2em;
             margin-top: 10em;
+            @include sp {
+                letter-spacing: 0.08em;
+            }
             &::before {
                 content: "";
                 position: absolute;
@@ -194,9 +191,11 @@
             100% 100%,
             0 100%
         );
-
-        // 移動した分の下余白を削除してレイアウト調整
         margin-bottom: calc(-100vw * tan(15deg));
+        @include sp {
+            padding-top: 30vw;
+            padding-bottom: 8vw;
+        }
         &::before {
             content: "";
             position: absolute;
@@ -223,6 +222,11 @@
             font-weight: 300;
             letter-spacing: 0.27em;
             line-height: 2.5em;
+            @include sp {
+                font-size: FZ(14);
+                letter-spacing: 0.08em;
+                line-height: 1.8em;
+            }
         }
         .blockInfo {
             font-size: inherit;
@@ -231,15 +235,31 @@
             align-items: center;
             margin-top: 3em;
             gap: 0 2em;
-            .name {
-                display: grid;
+            @include sp {
+                flex-direction: column;
+                gap: 6vw 0;
+            }
+            .logo {
+                position: relative;
                 font-size: inherit;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.4em;
-                span {
-                    display: inline-block;
-                    font-weight: 300;
-                    font-size: FZ(128);
+                width: 14.5em;
+                @include sp {
+                    width: 50vw;
+                    margin-top: 8vw;
+                }
+                &::before {
+                    content: "";
+                    position: absolute;
+                    inset: 0;
+                    margin: auto;
+                    width: 8rem;
+                    aspect-ratio: 1;
+                    background: url("../images/pearl02.webp") no-repeat center
+                        center/contain;
+                }
+                svg {
+                    fill: $base-white;
+                    aspect-ratio: 232/248;
                 }
             }
             .boxInfo {
@@ -252,6 +272,9 @@
                 h3 {
                     font-size: FZ(20);
                     letter-spacing: 0.12em;
+                    @include sp {
+                        font-size: FZ(16);
+                    }
                 }
                 .time {
                     font-size: inherit;
@@ -261,6 +284,9 @@
                         font-weight: 200;
                         font-size: FZ(32);
                         letter-spacing: 0.12em;
+                        @include sp {
+                            font-size: FZ(24);
+                        }
                         &:nth-of-type(2) {
                             &::before {
                                 content: "~";
@@ -279,10 +305,16 @@
                         font-weight: 200;
                         font-size: FZ(32);
                         letter-spacing: 0.12em;
+                        @include sp {
+                            font-size: FZ(24);
+                        }
                     }
                     span {
                         font-size: FZ(20);
                         letter-spacing: 0.12em;
+                        @include sp {
+                            font-size: FZ(14);
+                        }
                     }
                 }
                 address {
@@ -290,6 +322,9 @@
                     font-size: FZ(20);
                     letter-spacing: 0.12em;
                     margin-top: 0.3em;
+                    @include sp {
+                        font-size: FZ(16);
+                    }
                 }
             }
         }
@@ -302,6 +337,9 @@
         letter-spacing: 0.27em;
         padding-block: 0.5em;
         z-index: 2;
+        @include sp {
+            font-size: FZ(14);
+        }
         &::after {
             content: "";
             position: absolute;
@@ -310,17 +348,10 @@
             z-index: -1;
         }
         &::before {
-            content: "";
-            position: absolute;
-            top: -36px;
-            left: 0;
-            width: 100%;
-            height: 66px;
-            background-image: url("../images/pearl01.webp");
-            background-repeat: repeat-x;
-            background-size: 66px auto;
-            background-position: center bottom;
-            z-index: -1;
+            @include pearl-line(66px, top);
+            @include sp {
+                @include pearl-line(36px, top);
+            }
         }
     }
 }

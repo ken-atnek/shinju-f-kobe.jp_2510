@@ -1,0 +1,39 @@
+[
+  {
+    "date": "2025-09-10",
+    "weekday": "tue",
+    "scheduleStatus": "TEL確認"
+  },
+  {
+    "date": "2025-09-11",
+    "weekday": "wed",
+    "startTime": "20:00",
+    "endTime": "24:00"
+  },
+  {
+    "date": "2025-09-12",
+    "weekday": "thu"
+  },
+  {
+    "date": "2025-09-13",
+    "weekday": "fri",
+    "scheduleStatus": "お休み"
+  },
+  {
+    "date": "2025-09-14",
+    "weekday": "sat",
+    "startTime": "10:00",
+    "endTime": "20:00"
+  },
+  {
+    "date": "2025-09-15",
+    "weekday": "sun",
+    "scheduleStatus": "TEL確認"
+  },
+    {
+    "date": "2025-09-16",
+    "weekday": "mon",
+    "startTime": "8:00",
+    "endTime": "13:00"
+  }
+]

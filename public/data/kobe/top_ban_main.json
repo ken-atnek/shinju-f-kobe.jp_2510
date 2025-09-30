@@ -9,7 +9,6 @@
     "banId": "002",
     "banTitle": "入店特典",
     "banImage": "/images/kobe/ban/ban02.webp",
-
     "status": 3,
     "linkTarget": true,
     "url": "https://kyusyu-okinawa.qzin.jp/celebhot/"
@@ -17,7 +16,7 @@
   {
     "banId": "003",
     "banTitle": "求人バナー",
-    "banImage": "/images/kobe/ban/ban01.webp",
+    "banImage": "/images/kobe/ban/ban03.jpg",
     "status": 3,
     "linkTarget": true,
     "url": "https://kyusyu-okinawa.qzin.jp/celebhot/"

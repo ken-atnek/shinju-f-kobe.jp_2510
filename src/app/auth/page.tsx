@@ -6,21 +6,40 @@
  * ======================================= */
 
 'use client';
+import { useEffect, useState } from 'react';
 import styles from '@/styles/PageEntrance.module.scss';
-import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { setAgeVerified } from '@/lib/age';
 import ExternalLink from '@/components/common/ExternalLink';
 import { SHOP_INFO } from '@/config/shop';
 import clsx from 'clsx';
-
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import PearlArc from '@/components/Decoration/PearlArc';
 import PearlLineTopRight from '@/components/Decoration/PearlLineTopRight';
+import Image from 'next/image';
 
 export default function PageEntrance() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+
+  // ページタイトルをuseEffectで設定
+  useEffect(() => {
+    document.title = '認証ページ | 真珠夫人神戸本店';
+    // 必要ならmeta descriptionも動的に追加
+    const meta = document.querySelector('meta[name="description"]');
+    if (!meta) {
+      const metaTag = document.createElement('meta');
+      metaTag.name = 'description';
+      metaTag.content =
+        '神戸三宮のヘルス 真珠夫人 認証ページです。18歳未満の方はご退出ください。';
+      document.head.appendChild(metaTag);
+    } else {
+      meta.setAttribute(
+        'content',
+        '神戸三宮のヘルス 真珠夫人 認証ページです。18歳未満の方はご退出ください。'
+      );
+    }
+  }, []);
 
   const handleApprove = async () => {
     setIsLoading(true);
@@ -34,25 +53,32 @@ export default function PageEntrance() {
       <section className={styles.containerHead}>
         <div className={clsx(styles.objectCirclePearl, styles.potionLeft)}>
           <PearlArc
-            count={21}
-            radius={350}
-            startAngle={90}
-            endAngle={270}
-            size={isMobile ? 32 : 54}
+            count={isMobile ? 17 : 21}
+            radius={isMobile ? 180 : 350}
+            startAngle={isMobile ? 90 : 90}
+            endAngle={isMobile ? 270 : 270}
+            size={isMobile ? 36 : 54}
           />
         </div>
         <div className={clsx(styles.objectCirclePearl, styles.potionRight)}>
           <PearlArc
-            count={21}
-            radius={400}
-            startAngle={-90}
-            endAngle={90}
+            count={isMobile ? 18 : 21}
+            radius={isMobile ? 180 : 400}
+            startAngle={isMobile ? -90 : -90}
+            endAngle={isMobile ? 90 : 90}
             size={isMobile ? 32 : 63}
           />
         </div>
-        <div className={styles.name}>
-          <span>真珠夫人</span>
-          <p>上質で妖艶。真珠のように艶めき煌めく大人の女性。</p>
+        <p className={styles.sidebarLogo}>
+          上質で妖艶。真珠のように艶めき煌めく大人の女性。
+        </p>
+        <div className={styles.itemLogo}>
+          <Image
+            src="/images/kobe/entrance-logo.webp"
+            alt="真珠夫人神戸本店"
+            width={812}
+            height={277}
+          />
         </div>
         <button onClick={handleApprove} disabled={isLoading}>
           <span>enter</span>
@@ -69,7 +95,7 @@ export default function PageEntrance() {
           該当する方の訪問はご遠慮願います。
         </p>
       </section>
-      <PearlLineTopRight zIndex={3} />
+      <PearlLineTopRight zIndex={3} positionClass="left" />
       <section className={styles.containerBottom}>
         <p className={styles.announce}>
           神戸三宮発、厳選美女、特選美女、人妻専門店
@@ -85,11 +111,11 @@ export default function PageEntrance() {
           三宮発、禁断の文学的官能を味わえるお店。
         </p>
         <div className={styles.blockInfo}>
-          <div className={styles.name}>
-            <span>真</span>
-            <span>珠</span>
-            <span>夫</span>
-            <span>人</span>
+          <div className={styles.logo}>
+            <svg width="232" height="248" aria-label="真珠夫人">
+              <title>真珠夫人</title>
+              <use href="#svg_logoSquare" />
+            </svg>
           </div>
           <div className={styles.boxInfo}>
             <h3>営業時間</h3>

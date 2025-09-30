@@ -81,8 +81,8 @@ const renderCastItem = (item: CastDetail) => {
           </div>
         )}
         <ul className={styles.listType}>
-          {(item.type.length > 4
-            ? [...item.type].sort(() => Math.random() - 0.5).slice(0, 4)
+          {(item.type.length > 3
+            ? [...item.type].sort(() => Math.random() - 0.5).slice(0, 3)
             : item.type
           ).map((typeId, i) => {
             const label = typeLabels[typeId];
@@ -125,6 +125,14 @@ const ContainerPickUp = () => {
               pauseOnHover: true,
               perPage: 1,
               speed: 1200,
+              breakpoints: {
+                768: {
+                  perPage: 1,
+                  speed: 800,
+                  gap: '4vw',
+                  focus: 0,
+                },
+              },
             }}
             aria-label="ピックアップキャスト"
           >

@@ -1,7 +1,10 @@
 ## プロジェクト初期設定
 
 - `npx create-next-app@latest . --typescript` でプロジェクト作成
-- `npm install --save-dev prettier sass stylelint stylelint-config-standard-scss stylelint-scss` を開発依存でインストール
+  基本ツールのインストール
+- `npm install --save-dev rimraf cross-env prettier sass stylelint`
+  SCSS 用の Lint 拡張
+- `npm install --save-dev stylelint-config-standard-scss stylelint-scss` を開発依存でインストール
 - Next.js (app/ ルーティング対応) を使用
 - `output: 'export'` で運用
 
@@ -33,3 +36,16 @@
   - async禁止
 - Next.jsのバージョンを固定する
   - 公式型定義のバージョンずれ防止
+
+### Splideカルーセル実装時の注意
+
+- Splideカルーセルは「データ（items）が全て揃ってから」初期化しないと、レイアウト崩れや表示遅延が発生します。
+- そのため、**必ず下記のような条件で描画してください。**
+
+```tsx
+{items.length > 0 && (
+  <Splide ...>
+    {/* ... */}
+  </Splide>
+)}
+```
