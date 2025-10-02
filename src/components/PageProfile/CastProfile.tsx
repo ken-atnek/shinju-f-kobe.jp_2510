@@ -156,6 +156,15 @@ const CastProfile = () => {
   return (
     <>
       <section className={styles.containerHeadNav}>
+        <svg
+          width="268"
+          height="85"
+          aria-label="真珠夫人神戸本店"
+          className={styles.logoSvg}
+        >
+          <title>真珠夫人神戸本店</title>
+          <use href="#svg_logoMain" />
+        </svg>
         <nav className={styles.blockCastNav}>
           {prevCastId ? (
             <Link
