@@ -52,7 +52,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 5em;
+
+    // margin-top: 5em;
     padding-bottom: 12vw;
     .listStar {
         position: relative;
@@ -88,17 +89,30 @@
         grid-template-columns: auto auto 1fr;
         gap: 0 3em;
         margin-top: 1em;
+        @include sp {
+            grid-template-columns: auto 1fr;
+            gap: 8vw 0;
+            margin-top: 8vw;
+        }
         li {
             font-size: inherit;
             grid-column: span 3;
             display: grid;
             grid-template-columns: subgrid;
+            @include sp {
+                grid-column: span 2;
+            }
             .old {
                 position: relative;
                 font-size: inherit;
                 display: flex;
                 align-self: end;
                 padding-bottom: 0.8em;
+                @include sp {
+                    grid-column: span 2;
+                    justify-self: center;
+                    translate: 0 2vw;
+                }
                 &::after {
                     content: "";
                     position: absolute;
@@ -131,9 +145,15 @@
                 display: grid;
                 grid-template-columns: subgrid;
                 gap: 0 1em;
+                @include sp {
+                    // grid-column: unset;
+                }
                 .time {
                     font-size: FZ(96);
                     font-weight: 100;
+                    @include sp {
+                        font-size: FZ(72);
+                    }
                     i {
                         font-weight: 500;
                         font-size: 0.25em;
@@ -142,6 +162,9 @@
                 .newPrice {
                     font-size: FZ(96);
                     font-weight: 100;
+                    @include sp {
+                        font-size: FZ(72);
+                    }
                     i {
                         font-weight: 500;
                         font-size: 0.25em;
@@ -155,10 +178,20 @@
         display: flex;
         align-items: center;
         margin-top: 2dvh;
+        @include sp {
+            display: grid;
+            grid-column: auto 1fr;
+        }
         h4 {
             font-size: FZ(20);
             margin-right: 2em;
             letter-spacing: 0.27em;
+            @include sp {
+                grid-column: span 2;
+                justify-self: center;
+                margin-right: unset;
+                margin-top: 6vw;
+            }
         }
         .price {
             font-size: FZ(48);
@@ -194,6 +227,10 @@
         margin-top: 2em;
         display: flex;
         gap: 0 3em;
+        @include sp {
+            display: grid;
+            grid-template-columns: auto 1fr;
+        }
         h4 {
             color: #f80;
             @include Oswald;
@@ -201,6 +238,10 @@
             font-weight: 200;
             letter-spacing: 0.1em;
             align-self: center;
+            @include sp {
+                grid-column: span 2;
+                justify-self: center;
+            }
         }
         ul {
             position: relative;
@@ -208,6 +249,11 @@
             display: grid;
             grid-template-columns: auto 1fr;
             gap: 0.5em 2em;
+            @include sp {
+                justify-self: center;
+                grid-column: span 2;
+                margin-top: 6vw;
+            }
             li {
                 font-size: inherit;
                 display: grid;
@@ -221,6 +267,9 @@
                         font-size: FZ(32);
                         font-weight: 300;
                         letter-spacing: 0.17em;
+                        @include sp {
+                            font-size: FZ(20);
+                        }
                     }
                     span {
                         letter-spacing: 0.17em;
@@ -231,6 +280,9 @@
                     font-size: FZ(32);
                     font-weight: 300;
                     letter-spacing: 0.17em;
+                    @include sp {
+                        font-size: FZ(24);
+                    }
                 }
             }
         }

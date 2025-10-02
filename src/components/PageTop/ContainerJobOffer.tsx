@@ -26,7 +26,7 @@ const ContainerJobOffer = () => {
             まずは「女性求人情報はこちら」から、詳しい募集内容をご覧ください。
           </p>
           <ExternalLink
-            href="https://fuzoku.jp/hotpointgakuen/"
+            href="https://kansai.qzin.jp/shinjufujinkobe/"
             className={styles.itemPageLink}
           >
             女性求人情報はこちら

@@ -12,10 +12,11 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { useScrollTrigger } from '@/hooks/useScrollTrigger';
 import { useSplitText } from '@/hooks/useSplitText';
-import PearlArc from '@/components/Decoration/PearlArc';
+import BlockPriceList from '@/components/PageSystem/BlockPriceList';
+// import PearlArc from '@/components/Decoration/PearlArc';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 const ContainerSystem = () => {
-  const isMobile = useMediaQuery('(max-width: 768px)');
+  // const isMobile = useMediaQuery('(max-width: 768px)');
   const { ref: h2Ref, isVisible: h2Visible } =
     useScrollTrigger<HTMLDivElement>();
   return (
@@ -51,7 +52,8 @@ const ContainerSystem = () => {
           </div>
           <h2>料金システム</h2>
         </div>
-        <div className={styles.boxDetails}>
+        <BlockPriceList />
+        {/* <div className={styles.boxDetails}>
           <div className={styles.normalPrice}>
             <span className={styles.min}>
               40<i>分</i>
@@ -75,10 +77,10 @@ const ContainerSystem = () => {
               1,000<i>円〜</i>
             </span>
           </div>
-          {/* <Link href="/system/" className={styles.itemPageLink}>
+          <Link href="/system/" className={styles.itemPageLink}>
             その他の料金システムはこちら
-          </Link> */}
-        </div>
+          </Link>
+        </div> */}
       </article>
       {/* <BlockSlideBanSquare /> */}
     </section>

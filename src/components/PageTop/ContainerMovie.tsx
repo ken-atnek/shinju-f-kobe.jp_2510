@@ -51,7 +51,6 @@ const ContainerMovie = () => {
       </div>
       <div className={styles.itemMovie}>
         <video
-          src={movie.video_url}
           poster={movie.thumbnail}
           autoPlay
           muted
@@ -60,7 +59,15 @@ const ContainerMovie = () => {
           preload="metadata"
           width="100%"
           height="auto"
-        />
+          controls
+        >
+          <source src={movie.video_url} type="video/webm" />
+          <source
+            src={movie.video_url.replace('.webm', '.mp4')}
+            type="video/mp4"
+          />
+          お使いのブラウザは動画再生に対応していません。
+        </video>
       </div>
     </section>
   );

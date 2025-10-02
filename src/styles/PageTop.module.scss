@@ -113,22 +113,23 @@
     position: relative;
     @include flex-center;
     z-index: 2;
-    &::after {
-        content: "";
-        position: absolute;
-        top: 5em;
-        right: -4vw;
-        width: 20vw;
-        @include svg-logo-vertical("ffffff");
-        z-index: 1;
-        opacity: 0.2;
-        @include sp {
-            display: none;
-        }
-    }
+
+    // &::after {
+    //     content: "";
+    //     position: absolute;
+    //     top: 5em;
+    //     right: -4vw;
+    //     width: 20vw;
+    //     @include svg-logo-vertical("ffffff");
+    //     z-index: 1;
+    //     opacity: 0.2;
+    //     @include sp {
+    //         display: none;
+    //     }
+    // }
     .itemMovie {
         width: 100%;
-        aspect-ratio: 16/9;
+        aspect-ratio: 1920/1080;
         video {
             width: 100%;
             height: 100%;
