@@ -86,13 +86,29 @@
     display: flex;
     justify-content: center;
     padding: 12em 0 3em;
+    @include sp {
+        padding: 4vw 4vw;
+        justify-content: flex-start;
+    }
     &::before {
         @include pearl-line(54px, bottom);
+        @include sp {
+            @include pearl-line(24px, bottom);
+        }
+    }
+    .logoSvg {
+        display: none;
+        @include sp {
+            display: block;
+            fill: #fff;
+            aspect-ratio: $aspect-logo-main;
+            width: 30vw;
+        }
     }
     .blockCastNav {
         color: $light-purple;
         @include sp {
-            width: 100%;
+            display: none;
         }
         .linkCastList {
             background-color: $base-white;
@@ -121,6 +137,9 @@
     padding: 0 4vw;
     align-items: center;
     background-color: $base-purple;
+    @include sp {
+        padding: 0;
+    }
     article {
         max-width: $articleMaxWidth;
         background-color: $base-white;
@@ -128,11 +147,16 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 0 2em;
+        @include sp {
+            grid-template-columns: unset;
+            grid-auto-flow: row;
+            max-width: unset;
+            padding: 2vw 4vw;
+            justify-items: center;
+        }
         .itemImage {
             position: relative;
             width: 100%;
-
-            // height: 100%;
             img {
                 aspect-ratio: 3/4;
                 width: 100%;
@@ -146,14 +170,16 @@
             flex-direction: column;
             padding-top: 3em;
             padding-bottom: 2em;
+            @include sp {
+                display: contents;
+            }
             .wrapBadges {
                 font-size: inherit;
                 height: 5rem;
                 display: flex;
                 @include sp {
-                    position: absolute;
-                    left: 0;
-                    bottom: 100%;
+                    order: -2;
+                    justify-self: start;
                 }
                 ul {
                     display: flex;
@@ -272,8 +298,8 @@
                 padding-top: 2em;
                 @include sp {
                     position: absolute;
-                    bottom: 100%;
-                    right: 0;
+                    top: 2vw;
+                    right: 4vw;
                     padding-right: unset;
                 }
                 .itemRanking {
@@ -440,6 +466,11 @@
         aspect-ratio: 3/4;
         object-fit: cover;
     }
+    @include sp {
+        :global(.splide__slide) {
+            width: 85vw;
+        }
+    }
 }
 
 /* =================================
@@ -452,6 +483,9 @@
     .objectCirclePearl {
         position: absolute;
         font-size: inherit;
+        @include sp {
+            display: none;
+        }
         &.potionLeft {
             right: 95%;
             top: 50%;
@@ -468,6 +502,10 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         padding-block: 2em;
+        @include sp {
+            grid-template-columns: unset;
+            grid-auto-flow: row;
+        }
         .boxH3 {
             position: relative;
             font-size: inherit;
@@ -479,6 +517,10 @@
                 text-transform: uppercase;
                 letter-spacing: 0.1em;
                 position: relative;
+                @include sp {
+                    font-size: FZ(48);
+                    letter-spacing: 0.2em;
+                }
                 &::before {
                     content: "";
                     position: absolute;
@@ -494,6 +536,9 @@
             h3 {
                 font-size: FZ(16);
                 letter-spacing: 0.2em;
+                @include sp {
+                    font-size: FZ(14);
+                }
             }
         }
         .scheduleList {
@@ -599,11 +644,12 @@
     align-items: center;
     background-color: $base-purple;
     padding-inline: 4vw;
+    @include sp {
+        padding-inline: 0;
+    }
     .itemImage {
         position: relative;
         width: 100%;
-
-        // height: 100%;
         img {
             aspect-ratio: 3/4;
             width: 100%;
@@ -617,6 +663,10 @@
         color: $dark-purple;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        @include sp {
+            grid-template-columns: unset;
+            grid-auto-flow: row;
+        }
         .sidebarH2 {
             @include Oswald;
             text-transform: uppercase;
@@ -662,6 +712,11 @@
                         border-bottom: 1px solid;
                     }
                 }
+            }
+        }
+        .main02 {
+            @include sp {
+                order: -1;
             }
         }
         .boxCastMessage {
@@ -718,6 +773,9 @@
             background-color: $dark-purple;
             color: $base-white;
             padding: 3em 1em 1em;
+            @include sp {
+                order: 1;
+            }
             .boxInner {
                 width: 100%;
                 display: flex;
