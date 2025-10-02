@@ -9,17 +9,17 @@ import type { Metadata } from 'next';
 import { isRealProduction } from '@/lib/env';
 import ContainerMovie from '@/components/PageTop/ContainerMovie';
 import ContainerShopInfo from '@/components/PageTop/ContainerShopInfo';
-import ContainerPickUp from '@/components/PageTop/ContainerPickUp';
+// import ContainerPickUp from '@/components/PageTop/ContainerPickUp';
 import PearlLineTopRight from '@/components/Decoration/PearlLineTopRight';
-import ContainerSlideBan from '@/components/PageTop/ContainerSlideBan';
-import ContainerRanking from '@/components/PageTop/ContainerRanking';
+// import ContainerSlideBan from '@/components/PageTop/ContainerSlideBan';
+// import ContainerRanking from '@/components/PageTop/ContainerRanking';
 import ContainerSystem from '@/components/PageTop/ContainerSystem';
-import ContainerSchedule from '@/components/PageTop/ContainerSchedule';
+// import ContainerSchedule from '@/components/PageTop/ContainerSchedule';
 import ContainerJobOffer from '@/components/PageTop/ContainerJobOffer';
 import ContainerMensJobOffer from '@/components/PageTop/ContainerMensJobOffer';
 import ContainerAccess from '@/components/common/ContainerAccess';
 import ContainerFooter from '@/components/common/ContainerFooter';
-import ContainerMobileMenu from '@/components/PageTop/ContainerMobileMenu';
+// import ContainerMobileMenu from '@/components/PageTop/ContainerMobileMenu';
 export const generateMetadata = (): Metadata => {
   return {
     title:
@@ -33,14 +33,14 @@ export default function PageTop() {
   return (
     <main>
       <ContainerMovie />
-      <ContainerMobileMenu />
+      {/* <ContainerMobileMenu /> */}
       <ContainerShopInfo />
       <PearlLineTopRight zIndex={2} positionClass="tpoPage" />
-      <ContainerPickUp />
-      <ContainerSlideBan />
-      <ContainerRanking />
+      {/* <ContainerPickUp /> */}
+      {/* <ContainerSlideBan /> */}
+      {/* <ContainerRanking /> */}
       <ContainerSystem />
-      <ContainerSchedule />
+      {/* <ContainerSchedule /> */}
       <ContainerJobOffer />
       <ContainerMensJobOffer />
       <ContainerAccess />

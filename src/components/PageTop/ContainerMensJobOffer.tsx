@@ -18,9 +18,16 @@ const ContainerMensJobOffer = () => {
             <span className={styles.sidebarH2}>JOB OFFER</span>
             <h2>男性求人情報</h2>
             <p>
-              子どもら数人と山へ遊びに行った。私が子どものころは子どもたちは小さな子も大きな子も、まちまちの年齢の子が近隣でひとかたまりのグループを作って遊んでいた。山へ遊びに行くときも、大きな子が小さな子を引き連れる形で行くのだった。
+              「本気で稼ぎたい」その気持ちがあれば大歓迎！
+              経験・学歴・スキルは一切不要。難しい作業はほとんどなく、未経験でも安心して始められます。
+              スタッフの多くが他業種からの転職組です。
+              「自分に合う仕事が見つからない…」という方も、ぜひ一度面接へ！
+              ご質問・ご相談もお気軽にどうぞ。
             </p>
-            <ExternalLink href="/" className={styles.itemPageLink}>
+            <ExternalLink
+              href="https://mens-qzin.jp/hyogo/area_28001/detail/snjkobe/"
+              className={styles.itemPageLink}
+            >
               男性求人情報はこちら
             </ExternalLink>
           </div>

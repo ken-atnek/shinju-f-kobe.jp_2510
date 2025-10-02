@@ -6,7 +6,7 @@
  * Last updated: 2025-09-24
  * ======================================= */
 'use client';
-import BlockSlideBanSquare from '@/components/PageTop/BlockSlideBanSquare';
+// import BlockSlideBanSquare from '@/components/PageTop/BlockSlideBanSquare';
 import styles from '@/styles/PageTop.module.scss';
 import clsx from 'clsx';
 import Link from 'next/link';
@@ -20,8 +20,8 @@ const ContainerSystem = () => {
     useScrollTrigger<HTMLDivElement>();
   return (
     <section className={styles.containerSystem}>
-      <div className={styles.boxBlockBg}></div>
-      <div className={clsx(styles.objectCirclePearl, styles.potionRight)}>
+      {/* <div className={styles.boxBlockBg}></div> */}
+      {/* <div className={clsx(styles.objectCirclePearl, styles.potionRight)}>
         <PearlArc
           count={isMobile ? 21 : 21}
           radius={isMobile ? 200 : 450}
@@ -29,8 +29,8 @@ const ContainerSystem = () => {
           endAngle={270}
           size={isMobile ? 30 : 68}
         />
-      </div>
-      <div className={clsx(styles.objectCirclePearl, styles.potionLeft)}>
+      </div> */}
+      {/* <div className={clsx(styles.objectCirclePearl, styles.potionLeft)}>
         <PearlArc
           count={isMobile ? 25 : 23}
           radius={isMobile ? 240 : 500}
@@ -38,7 +38,7 @@ const ContainerSystem = () => {
           endAngle={90}
           size={isMobile ? 30 : 68}
         />
-      </div>
+      </div> */}
       <article className={styles.blockSystem}>
         <div className={styles.boxH2} ref={h2Ref}>
           <div
@@ -75,12 +75,12 @@ const ContainerSystem = () => {
               1,000<i>円〜</i>
             </span>
           </div>
-          <Link href="/system/" className={styles.itemPageLink}>
+          {/* <Link href="/system/" className={styles.itemPageLink}>
             その他の料金システムはこちら
-          </Link>
+          </Link> */}
         </div>
       </article>
-      <BlockSlideBanSquare />
+      {/* <BlockSlideBanSquare /> */}
     </section>
   );
 };
