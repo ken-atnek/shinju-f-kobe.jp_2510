@@ -10,6 +10,7 @@ import type { Metadata } from 'next';
 import { Noto_Sans_JP, Oswald } from 'next/font/google';
 import { isRealProduction } from '@/lib/env';
 import ClientLayout from '@/components/ClientLayout';
+import Script from 'next/script';
 
 const notoSans = Noto_Sans_JP({
   subsets: ['latin'],
@@ -84,6 +85,19 @@ export default function RootLayout({
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
         />
+        {/* Google tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-EV661LDSYH"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-EV661LDSYH');
+          `}
+        </Script>
       </head>
       <body>
         <ClientLayout>{children}</ClientLayout>
